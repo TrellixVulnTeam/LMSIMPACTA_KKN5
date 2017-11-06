@@ -7,7 +7,7 @@ GO
 use LMSIMPACTA;
 GO
 
-/*INICIO DA CRIA«√O DAS TABELAS*/
+/*INICIO DA CRIA√á√ÉO DAS TABELAS*/
 CREATE TABLE Curso(
 	IdCurso TINYINT IDENTITY,
 	Sigla VARCHAR(5) NOT NULL,
@@ -142,7 +142,8 @@ CREATE TABLE PeriodoDisciplina(
 	CONSTRAINT FkNomeDisciplina FOREIGN KEY (IdNomeDisciplina) REFERENCES Disciplina(Nome)
 );
 
-CREATE TABLE Matricula(
+CREATE TABLE Matricula
+(
 	IdMatricula INT IDENTITY,
 	IdAluno INT NOT NULL,
 	IdTurma INT NOT NULL,
@@ -161,7 +162,8 @@ CREATE TABLE ArquivoResposta(
 	CONSTRAINT UqArquivoResposta UNIQUE (Arquivo)
 );
 
-CREATE TABLE CursoTurma(
+CREATE TABLE CursoTurma
+(
 	IdCursoTurma SMALLINT IDENTITY,
 	IdCurso TINYINT NOT NULL,
 	IdTurma INT NOT NULL,
@@ -171,7 +173,8 @@ CREATE TABLE CursoTurma(
 );
 
 
-CREATE TABLE ArquivoQuestao(
+CREATE TABLE ArquivoQuestao
+(
 	IdArquivoQuestao INT IDENTITY,
 	IdQuestao INT NOT NULL,
 	Arquivo VARCHAR(500) NOT NULL,
