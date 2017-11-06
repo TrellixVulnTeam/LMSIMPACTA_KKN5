@@ -1,0 +1,137 @@
+	
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Suporte Ponto</title>
+	<link rel="stylesheet" href="static/style.css"  />
+	<script type="text/javascript" src="static/scriptShowHide.js"></script>
+	<script type="text/javascript" src="static/scriptValida.js"></script>
+</head>
+<body>
+	<!-- --------------------HEADER ---------------------------------->
+	<header>
+		<a href="index.html" class="img_logo_header"><img src="static/img/logo_header.png" alt="Logo Nusa"  href="index.html"></a>
+		<nav class="nav_list">
+			<ul class="list_header">
+				<li><a>Suporte Nusa</a></li>
+				<li><a>Contato</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!-- --------------------artigos populares ---------------------------------->
+
+	<section class="art_populares">
+		<h1>Artigos Mais Populares</h1>	
+		<div class="div_populares">
+
+			<ul class="um">
+				{{% for curso in cursos %}}
+					<li><a href="#d"><img src="static/img/Artigo.png" alt="icone artigo">{{curso}}</a></li>
+				{{% endfor %}}
+			</ul>
+
+			<ul class="dois">
+				<li><a href="#d"><img src="static/img/Artigo.png" alt="icone artigo">Como cadastrar novos locais de trabalho?</a></li>
+				<li><a href="#d"><img src="static/img/Artigo.png" alt="icone artigo">Como bater o ponto pelo celular ou tablet?</a></li>
+				<li><a href="#d"><img src="static/img/Artigo.png" alt="icone artigo">Quais são os telefones para bater o ponto?</a></li>
+				<li><a href="#d"><img src="static/img/Artigo.png" alt="icone artigo">Como cadastrar novos Funcionários?</a></li>
+			</ul>
+
+		</div>
+	<!-- --------------------bloco de tópicos ---------------------------------->
+
+	</section>
+	<section class="art_itens">	
+
+		<div class="esquerda">
+
+			<input type="checkbox"  name="rd_topicos" id="btncadastro" onclick="ShowHide_cad();Condicional_cad()">
+			<label for="btncadastro"><div class="externa"> <div class="div_interna"><h2>Cadastro</h2> <h3>4 artigos</h3> </div></div></label>
+			<div id="div_sub_cad">
+				<div id="div_sub_topico">
+					<ul>
+						<li><a href="#d"><img src="static/img/Artigo.png" alt="icone artigo">Funcionário</a></li>
+						<li><a href="#d"><img src="static/img/Artigo.png" alt="icone artigo">Gestor</a></li>
+						<li><a href="#d"><img src="static/img/Artigo.png" alt="icone artigo">Estabelecimento</a></li>
+						<li><a href="#d"><img src="static/img/Artigo.png" alt="icone artigo">Tipo de Escala / Jornada</a></li>
+					</ul>
+				</div>
+			</div>
+			<!--
+			<input type="checkbox"  name="rd_topicos" id="btnsistemas" >
+			<label for="btnsistemas"><div class="externa"> <div class="div_interna" ><h2>Sistema</h2> <h3>5 artigos</h3> </div></div></label>
+			<div id="div_sub_topico">
+				<ul>
+					<li><a href="#d"><img src="img/Artigo.png" alt="icone artigo">Como começar a usar o sistema?</a></li>
+					<li><a href="#d"><img src="img/Artigo.png" alt="icone artigo">Como funciona o sistema?</a></li>
+					<li><a href="#d"><img src="img/Artigo.png" alt="icone artigo">Em quais plataformas eu consigo usar o sistema?</a></li>
+					<li><a href="#d"><img src="img/Artigo.png" alt="icone artigo">Mas não seria fácil burlar o sistema?</a></li>
+					<li><a href="#d"><img src="img/Artigo.png" alt="icone artigo">Quais as vantagens ao utilizar o sistema?</a></li>
+					<li><a href="#d"><img src="img/Artigo.png" alt="icone artigo">Como fazer novas atualizações?</a></li>
+					<li><a href="#d"><img src="img/Artigo.png" alt="icone artigo">Qual a validade jurídica do aplicativo?</a></li>
+				</ul>
+			</div>
+			
+
+			<input type="checkbox"  name="rd_topicos" id="btngestao">
+			<label for="btngestao"><div class="externa"><div class="div_interna"> <h2>Gestão</h2> <h3>5 artigos</h3> </div></div></label>
+			<div id="div_sub_topico">
+				<ul>
+					<li><a href="#d"><img src="img/Artigo.png" alt="icone artigo">Funcionário</a></li>
+					<li><a href="#d"><img src="img/Artigo.png" alt="icone artigo">Gestor</a></li>
+					<li><a href="#d"><img src="img/Artigo.png" alt="icone artigo">Estabelecimento</a></li>
+					<li><a href="#d"><img src="img/Artigo.png" alt="icone artigo">Tipo de Escala / Jornada</a></li>
+				</ul>
+			</div>
+		-->
+		</div>
+
+		<div class="direita">
+
+			<input type="checkbox"  name="rd_topicos" id="btnaplicativos" onclick="ShowHide_apk();Condicional_apk()">
+			<label for="btnaplicativos" ><div class="externa"> <div class="div_interna"><h2>Aplicativos</h2> <h3>4 artigos</h3> </div></div></label>
+			<div id="div_sub_apk">
+				<div id="div_sub_topico">
+					<ul>
+						<li><a href="#d"><img src="static/img/Artigo.png" alt="icone artigo">Gestor</a></li>
+						<li><a href="#d"><img src="static/img/Artigo.png" alt="icone artigo">Portal do Funcionário</a></li>
+						<li><a href="#d"><img src="static/img/Artigo.png" alt="icone artigo">Ponto Mobile</a></li>
+						<li><a href="#d"><img src="static/img/Artigo.png" alt="icone artigo">Ponto Desktop</a></li>
+					</ul>
+					
+				</div>
+			</div>
+<!--
+			<input type="checkbox"  name="rd_topicos" id="btnfechamento">
+			<label for="btnfechamento"><div class="externa"> <div class="div_interna"><h2>Fechamento</h2> <h3>5 artigos</h3> </div></div></label>
+			<div id="div_sub_topico">
+				<ul>
+					<li><a href="#d"><img src="img/Artigo.png" alt="icone artigo">Apontamento de ponto </a></li>
+					<li><a href="#d"><img src="img/Artigo.png" alt="icone artigo">Apontar Ausência de marcação</a></li>
+					<li><a href="#d"><img src="img/Artigo.png" alt="icone artigo">Imprimir espelho de ponto coletivo</a></li>
+					<li><a href="#d"><img src="img/Artigo.png" alt="icone artigo">Exportação de Folha de Pagamento</a></li>
+				</ul>
+			</div>
+
+			<input type="checkbox"  name="rd_topicos" id="btngerenciamento">
+			<label for="btngerenciamento"><div class="externa"> <div class="div_interna"><h2>Gerenciamento</h2> <h3>5 artigos</h3> </div></div></label>
+				<div id="div_sub_topico">
+					<ul>
+						<li><a href="#d"><img src="img/Artigo.png" alt="icone artigo">Acompanhamento de pontos 24hrs</a></li>
+						<li><a href="#d"><img src="img/Artigo.png" alt="icone artigo">Acompanhamento de pontos por período</a></li>
+						<li><a href="#d"><img src="img/Artigo.png" alt="icone artigo">Como cadastrar férias?</a></li>
+						<li><a href="#d"><img src="img/Artigo.png" alt="icone artigo">Como desativar um funcionário?</a></li>
+					</ul>
+				</div>
+			
+-->
+		</div>
+
+	</section>
+	<!-- --------------------footer ---------------------------------->
+	<footer> &copy; Nusa 2017. Todos os direitos reservados. </footer>
+
+	
+</body>
+</html>
