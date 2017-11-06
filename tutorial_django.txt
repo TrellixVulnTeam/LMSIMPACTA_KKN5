@@ -1,0 +1,75 @@
+ESTRUTURA BÁSICA DE UM PROJETO EM DJANGO
+
+DENTRO DA PASTA COM O NOME QUE VOCÊ ESCOLHER
+PASTA COM O NOME QUE VOCÊ ESCOLHER
+1)settings: É o arquivo mais importante, fala sobre os apps instalados, middleware, configura o banco de dados, validadores de senha, troca idioma, fuso horário
+
+2)urls: É importante lembrar que a url trabalha sempre junto com as views
+
+3)WSGI: Arquivo para conseguir colocar seu site em produção
+------------------------------------------------------------------------------------------------------------------------------------------
+
+4) manage: Arquivo utilitario para utilizar códigos django dentro do projeto
+
+
+-Com tudo isso em mãos, é hora de criar a APP core (python manage.py startapp core)
+OBS: PASTA CORE
+CORE
+	1)admin: onde serão registrados os CRUDS
+	2)apps: acredito que nesse arquivo não existirao alterações
+	3)models: onde será modelado os campos e tipos de variaveis
+	4)tests: onde faremos os testes dos programas
+	5)views: onde ficam funções
+	6)pasta static: onde ficam os arquivos CSS
+	7)pasta templates: onde ficam os arquivos HTML
+------------------------------------------------------------------------------------------------------------------------------------------
+
+-Depois de criado, você tem que ir em settings e registrar sua aplicação colocando o nome ‘core’ em INSTALLED_APPS
+- python manage.py migrate (cria o BD)
+- python manage.py createsuperuser(Cria o adm e a senha dele)
+- python manage.py runserver e loga como administrador
+
+
+	
+COMO MAPEAR O INDEX
+1)	Mapeia uma URL vazia, que vai chamar a função home
+2)	Com a função home chamada, vai entrar em views e procurar a função home que entrega um template index pra ela
+
+*OBS: URL -> VIEW -> INDEX.HTML
+
+COMO FAZER UM CRUD(Create, Read, Update e Delete)
+1)CRIA URL
+2)VAI EM VIEWS E CRIA AS FUNCOES:
+
+EX: def lista(request):
+lista = Post.objects.all().order_by(‘-id’)
+return render(request,’lista.html’)
+
+lista busca no banco todos os posts
+
+3)Vai em models e define as classes
+	EX: Class Post(models.Model):
+		Titulo = models.CharField(max_length = 100)
+		Texto = models.TextField()
+
+4)Vai em admin e registra o post
+5) CMD
+	5.1) Python manage.py makemigrations
+	5.2) Python manage.py migrate
+
+COMANDOS BÁSICOS PRA DJANGO NO CMD
+INICIANDO A APLICAÇÃO
+Se o projeto já está instalado e configurado no seu PC
+1)	venv\Scripts\Activate
+2)	python manage.py runserver
+
+Se o projeto não está instalado e configurado no seu PC(criou um projeto novo ou pegou algum projeto e vai utiliza-lo)
+Antes de seguir os passos à cima, você deve fazer todas as instalações por meio do pip.
+
+	OUTROS COMANDOS ÚTEIS
+
+Verificar a versão do python: python –m django –version
+Instalar a extensão do SQL server: pip install pyodbc-azure
+Criar um usuário: python manage.py createsuperuser
+Criar o BD: python manage.py migrate
+Fazer migrações pro banco: python manage.py makemigrations
