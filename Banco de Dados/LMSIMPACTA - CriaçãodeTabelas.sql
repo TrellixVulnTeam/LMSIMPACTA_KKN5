@@ -7,7 +7,7 @@ GO
 use LMSIMPACTA;
 GO
 
-/*INICIO DA CRIA«√O DAS TABELAS*/
+/*INICIO DA CRIA√á√ÉO DAS TABELAS*/
 CREATE TABLE Curso(
 	IdCurso TINYINT IDENTITY,
 	Sigla VARCHAR(5) NOT NULL,
@@ -179,5 +179,6 @@ CREATE TABLE ArquivoQuestao(
 	CONSTRAINT FkIdQuestaoArquivoQuestao FOREIGN KEY (IdQuestao) REFERENCES Questao(IdQuestao),
 	CONSTRAINT UqArquivoQuestao UNIQUE (Arquivo)
 );
+
 
 
