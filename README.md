@@ -1,2 +1,2 @@
 # LMSIMPACTA
-Projeto integrado do semestre
+Projeto integrado do semestre.
