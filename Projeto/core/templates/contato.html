@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        E-mail <input /><br/>
+        Nome <input name="nome" /><br/>
+        Mensagem <textarea name="mensagem"></textarea><br/>
+        <input type="submit" value="enviar"/>
+    </form>
+{% endblock %}

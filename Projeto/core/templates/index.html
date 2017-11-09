@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block scripts %}
+    {{ block.super }}
+<link rel="stylesheet" href="/static/site2.css"/>
+{% endblock %}
+{% block conteudo %}
+    <nav>
+        {% if not logado %}
+            <a href="/login">Login</a>
+        {% else %}    
+            <span>Olá {{ usuario }}</span>
+        {% endif %}
+    </nav>
+    <h2>Cursos</h2>
+    <ul>
+        {% for curso in cursos %}
+            {% if curso.ativo %}
+                <li class="{{ curso.tipo }}"  >{{ curso.nome }} - {{ curso.tipo }}</li>
+            {% endif %}
+        {% endfor %}    
+    </ul>
+    {% if idade < 18 %}
+        <h3> Para menores de idade! </h3>
+    {% elif idade >= 18 and idade < 30 %}
+        <h3> Para maiores de idade mas não tão velho!</h3>
+    {% else %}
+        <h3>Seu velho!</h3>
+    {% endif %}
+{% endblock %}
