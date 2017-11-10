@@ -76,11 +76,14 @@ WSGI_APPLICATION = 'lsmimpacta.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'LMSIMPACTA',
+        'USER': '',
+        'PASSWORD': 'a_password',
+        'HOST': 'bancosql1700262.database.windows.net',
+        'PORT': '1433',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
