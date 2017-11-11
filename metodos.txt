@@ -1,0 +1,21 @@
+
+#Criacao de alguns metodos para a utilizacao no sistema
+from django.http import HttpResponse
+from django.template import Context, loader
+
+
+def calcula_media(self,n1,n2,n3,n4):
+    resultado = (n1+n2+n3+n4)/4
+    return resultado
+
+def aplica_teste(self):
+    self.verifica += 1
+    if self.verifica >= 1:
+        template = loader.get_template("app/contato.html")
+        return HttpResponse(template.render)
+    else:
+        print("Teste já feito")
+
+#é importante lembrar que alguns metodos da lista do professor Fernando terão de ter acesso ao BD e ainda não sabemos como fazer isso
+#com eficiência. Por isso esta lista ainda será atualizada futuramente. A construção dos métodos de testes serão incrementados aqui 
+# quando houver um cliente cadastrado no BD para que possa realmente fazer o teste.
