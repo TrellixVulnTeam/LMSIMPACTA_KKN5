@@ -1,0 +1,44 @@
+
+GIT É UM SISTEMA DE CONTROLE DE VERSÕES, OU SEJA, ELE SALVA DIFERENTES
+VERSÕES DO MESMO PROJETO, É BASEADO EM LINUX E FOI CRIADO PELO PROPRIO LINUS TORVALDS.
+GITHUB É UM SISTEMA WEB QUE TE OFERECE UMA VIEW DESSE PROJETO, É CONSIDERADO UMA REDE SOCIAL TAMBEM
+
+INSTALE O GIT. ABRA O CMD.
+PARA SE AUNTENTICAR E MOSTRAR AO GIT QUEM É VOCÊ:
+> git config --global user.name "NOME DE USUARIO DO GIT"
+> git config --global user.email "EMAIL CADASTRADO NO GIT"
+
+PARA CLONAR O REPOSITORIO OU CRIAR UM NOVO
+> git clone https://github.com/lucassiqueira08/LMSIMPACTA.git
+> md LMSIMPACTA
+
+NESSE MOMENTO, O GIT DESCONHECE O ARQUIVO CRIADO (status = untracked), PARA QUE SEJA
+TRATADO COMO ARQUIVO GIT:
+> git init 
+
+AGORA O GIT JÁ ENTENDE QUE AQUILO É UM ARQUIVO DO TIPO .GIT,
+POREM NÃO HÁ NADA PARA MODIFICAR (status = unmodified), altere algo e faça:
+> git add (arquivo ou *)
+
+O STATUS MUDOU (MODIFIED) E ESTÃO PRONTAS PARA SEREM COMMITADAS:
+> git commit -m "DESCREVA O QUE VOCÊ FEZ, NADA DE BANANA, NEM UP"
+
+PARA MANDAR PARA O SERVIDOR(STATUS = STAGED):
+> git push origin "nome do branch que recebera os arquivos"
+
+
+OUTROS COMANDOS ÚTEIS:
+> git pull origin "nome do branch" - As vezes sua versão está desatualizada, para puxar uma nova, execute.
+> git checkout "nome do branch" - Muda o branch
+> git checkout -b "nome do branch" - Cria um novo branch
+> git checkout -d "nome do branch" - Apaga um branch
+> git merge "nome do banco a ser clonado" - É necessário estar no branch que receberá o merge
+
+LOGS:
+> git shortlog 
+> git shortlog -sn
+> git log
+> git log --author="lucassiqueira08"
+> git log --decorate
+> git log --graph
+> git show "numero da hash"
