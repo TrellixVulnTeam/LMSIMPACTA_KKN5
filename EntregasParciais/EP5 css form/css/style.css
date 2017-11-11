@@ -1,4 +1,4 @@
-﻿}
+﻿} /*------ NÃO TIRAR ESSE PARENTESES----------*/
 
 /*-------------------------------------INICIO - RESET BASICO------------------------------------------ */
 * {
@@ -558,7 +558,7 @@ section {
 	padding-left: 30px;
 	padding-right: 30px;	
 }
-
+}
 
 
 
@@ -610,6 +610,7 @@ a:hover {
 	color:#000; 
 	font-size:103%; 	
 }
+}
 	
 
 /*----------------------------------- fim --------------------------------------*/
@@ -625,37 +626,38 @@ a:hover {
 }
 
 @media screen and (max-width: 1300px) {
-.ClassImgDisciplinas{
+	.ClassImgDisciplinas{
 
-	margin-left: 20px;
-	text-align: center;
-	width:40%;
-	padding-left: auto;
-	padding-right: auto;
-	margin-bottom:35px;
+		margin-left: 20px;
+		text-align: center;
+		width:40%;
+		padding-left: auto;
+		padding-right: auto;
+		margin-bottom:35px;
 
+	}
 }
 
 @media screen and (max-width: 480px) {
-.ClassImgDisciplinas{
-	width:100%;
-	text-align: center;
+	.ClassImgDisciplinas{
+		width:100%;
+		text-align: center;
+	}
 }
 
-}
 @media screen and (max-width: 800px) {
-.FrmCadastro input[type="radio"] {
-	display:inline-block;
-    height:20px;
-    padding:0 0 0 25px;
-    margin:0 10px 0 0;
-    background-image:url(http://www.webcis.com.br/images/imagens-noticias/checkbox/ico-master.png);
-    background-repeat:no-repeat;
-    background-position:0 0;
-	width:40px;
+	.FrmCadastro input[type="radio"] {
+		display:inline-block;
+	    height:20px;
+	    padding:0 0 0 25px;
+	    margin:0 10px 0 0;
+	    background-image:url(http://www.webcis.com.br/images/imagens-noticias/checkbox/ico-master.png);
+	    background-repeat:no-repeat;
+	    background-position:0 0;
+		width:40px;
 
 
-}
+	}
 }
 
 
