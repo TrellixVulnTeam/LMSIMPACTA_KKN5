@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+'''
 class Curso(models.Model):
 
     nome = models.CharField("Nome",max_length=50)
@@ -13,3 +14,5 @@ class Curso(models.Model):
 
     def __str__(self):
         return self.nome
+'''
+

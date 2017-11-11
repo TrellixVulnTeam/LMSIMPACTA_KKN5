@@ -78,10 +78,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
         'NAME': 'LMSIMPACTA',
-        'USER': '',
-        'PASSWORD': 'a_password',
+        'USER': 'lucas',
+        'PASSWORD': '@impacta2015',
         'HOST': 'bancosql1700262.database.windows.net',
-        'PORT': '1433',
     }
 }
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from core.models import Curso
+'''from core.models import Curso
 
 def banana(requisicao):
     contexto = {
@@ -17,3 +17,4 @@ def contato(request):
     if request.POST:
         print(request.POST['mensagem'])
     return render(request,"contato.html")
+'''
