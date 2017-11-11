@@ -1,0 +1,186 @@
+/*use master
+drop database LMSIMPACTA
+GO*/
+
+create database LMSIMPACTA;
+GO
+use LMSIMPACTA;
+GO
+
+/*INICIO DA CRIAÇÃO DAS TABELAS*/
+CREATE TABLE Curso(
+	IdCurso TINYINT IDENTITY,
+	Sigla VARCHAR(5) NOT NULL,
+	Nome VARCHAR(50) NOT NULL,
+	CONSTRAINT PkIdCurso PRIMARY KEY (IdCurso),
+	CONSTRAINT UQSiglaCurso UNIQUE (Sigla),
+	CONSTRAINT UQNomeCurso UNIQUE (Nome)
+);
+
+
+CREATE TABLE Aluno(
+	IdAluno INT IDENTITY,
+	RA INT NOT NULL,
+	Nome VARCHAR(120) NOT NULL,
+	Email VARCHAR(80) NOT NULL,
+	Celular CHAR(11),
+	IdCurso TINYINT,
+	CONSTRAINT PkIdAluno PRIMARY KEY (IdAluno),
+	CONSTRAINT UQRaAluno UNIQUE (RA),
+	CONSTRAINT FKIdCurso FOREIGN KEY (IdCurso) REFERENCES CURSO(IdCurso)
+);
+
+
+CREATE TABLE Disciplina(
+	IdDisciplina SMALLINT IDENTITY,
+	Nome VARCHAR(240) NOT NULL,
+	Teoria DECIMAL (3) NOT NULL,
+	Pratica DECIMAL (3) NOT NULL,
+	CargaHoraria TINYINT NOT NULL,
+	Emenda TEXT NOT NULL,
+	Competencias TEXT NOT NULL,
+	Habilidades TEXT NOT NULL,
+	Conteudo TEXT NOT NULL,
+	Bibliografia_basica TEXT,
+	Bibliografia_complementar TEXT,
+	CONSTRAINT PkIdDisciplina PRIMARY KEY (IdDisciplina),
+	CONSTRAINT UqNomeDisciplina UNIQUE (Nome)
+);
+
+
+CREATE TABLE Professor(
+	IdProfessor SMALLINT IDENTITY,
+	RA INT NOT NULL,
+	Nome VARCHAR(120) NOT NULL,
+	Email VARCHAR(80) NOT NULL,
+	Celular CHAR(11),
+	Apelido VARCHAR(30)
+	CONSTRAINT PkIdProfessor PRIMARY KEY (IdProfessor),
+	CONSTRAINT UqRaProfessor UNIQUE (RA),
+	CONSTRAINT UqApelidoProfessor  UNIQUE (Apelido)
+);
+
+
+CREATE TABLE GradeCurricular(
+	IdGradeCurricular SMALLINT  IDENTITY,
+	IdCurso TINYINT,
+	Ano SMALLINT,
+	Semestre CHAR(1),
+	CONSTRAINT PkIdGradeCurricular PRIMARY KEY (IdGradeCurricular),
+	CONSTRAINT FkIdGradeCurso FOREIGN KEY (IdCurso) REFERENCES Curso(IdCurso),
+	CONSTRAINT UqGradeCurricular UNIQUE (Ano, Semestre, IdCurso)
+);
+
+CREATE TABLE Periodo(
+	IdPeriodo TINYINT IDENTITY,
+	IdGradeCurricular SMALLINT NOT NULL,
+	Numero TINYINT NOT NULL, 
+	CONSTRAINT PkIdPeriodo PRIMARY KEY (IdPeriodo),
+	CONSTRAINT FkIdGradeCurricular FOREIGN KEY (IdGradeCurricular) REFERENCES GradeCurricular(IdGradeCurricular),
+	CONSTRAINT UqNumero UNIQUE (Numero)
+);
+
+
+CREATE TABLE DisciplinaOfertada(
+	IdDisciplinaOfertada SMALLINT IDENTITY,
+	IdDisciplina SMALLINT NOT NULL,
+	Ano SMALLINT NOT NULL,
+	Semestre CHAR(1) NOT NULL,
+	CONSTRAINT PkIdDisciplinaOfertada PRIMARY KEY (IdDisciplinaOfertada),
+	CONSTRAINT FkIdDisciplina FOREIGN KEY (IdDisciplina) REFERENCES Disciplina(IdDisciplina),
+	CONSTRAINT UqDisciplinaOfertada UNIQUE (Ano, Semestre)
+);
+
+
+CREATE TABLE Turma(
+	IdTurma INT IDENTITY,
+	Id CHAR(1) NOT NULL, 
+	Turno VARCHAR(15),
+	Id_DisciplinaOfertada SMALLINT,
+	IdProfessor SMALLINT,
+	CONSTRAINT PkIdTurma PRIMARY KEY (IdTurma),
+	CONSTRAINT FkId_DisciplinaOfertada FOREIGN KEY (Id_DisciplinaOfertada) REFERENCES DisciplinaOfertada(IdDisciplinaOfertada),
+	CONSTRAINT FkIdProfessor FOREIGN KEY (IdProfessor) REFERENCES Professor(IdProfessor),
+	CONSTRAINT UqTurma UNIQUE (Id)
+);
+
+
+CREATE TABLE Questao(
+	IdQuestao INT IDENTITY,
+	IdTurma INT NOT NULL,
+	Numero INT,
+	data_limite_entrega DATE,
+	Descricao TEXT,
+	Data DATE NOT NULL,
+	CONSTRAINT IdQuestao PRIMARY KEY (IdQuestao),
+	CONSTRAINT IdTurma FOREIGN KEY (IdTurma) REFERENCES Turma(IdTurma),
+	CONSTRAINT UqNumeroQuestao UNIQUE (Numero)
+);
+
+
+CREATE TABLE Resposta(
+	IdResposta INT IDENTITY,
+	IdQuestao INT NOT NULL,
+	RaAluno INT NOT NULL,
+	Data_Avaliacao DATE NOT NULL,
+	Nota DECIMAL(4,2),
+	Avaliacao TEXT,
+	Descricao TEXT,
+	Data_de_Envio DATE,
+	CONSTRAINT PkIdRespoosta PRIMARY KEY (IdResposta),
+	CONSTRAINT FkIdNumeroQuestao FOREIGN KEY (IdQuestao) REFERENCES Questao(IdQuestao),
+	CONSTRAINT UqResposta UNIQUE (RaAluno)
+);
+
+
+CREATE TABLE PeriodoDisciplina(
+	IdPeriodoDisciplina SMALLINT IDENTITY,
+	IdPeriodo TINYINT NOT NULL,
+	IdNomeDisciplina VARCHAR(240) NOT NULL,
+	CONSTRAINT PkIdPeriodoDisciplina PRIMARY KEY (IdPeriodoDisciplina),
+	CONSTRAINT FkIdPeriodo FOREIGN KEY (IdPeriodo) REFERENCES Periodo(IdPeriodo),
+	CONSTRAINT FkNomeDisciplina FOREIGN KEY (IdNomeDisciplina) REFERENCES Disciplina(Nome)
+);
+
+CREATE TABLE Matricula
+(
+	IdMatricula INT IDENTITY,
+	IdAluno INT NOT NULL,
+	IdTurma INT NOT NULL,
+	CONSTRAINT PkIdMatricula PRIMARY KEY (IdMatricula),
+	CONSTRAINT FkIdAluno FOREIGN KEY (IdAluno) REFERENCES Aluno(IdAluno),
+	CONSTRAINT FkIdTurma FOREIGN KEY (IdTurma) REFERENCES Turma(IdTurma)
+);
+
+
+CREATE TABLE ArquivoResposta(
+	IdArquivoResposta INT IDENTITY,
+	IdResposta INT NOT NULL,
+	Arquivo VARCHAR(500),
+	CONSTRAINT PkIdArquivoResposta PRIMARY KEY (IdArquivoResposta), 
+	CONSTRAINT FkIdResposta FOREIGN KEY (IdResposta) REFERENCES Resposta(IdResposta),
+	CONSTRAINT UqArquivoResposta UNIQUE (Arquivo)
+);
+
+CREATE TABLE CursoTurma
+(
+	IdCursoTurma SMALLINT IDENTITY,
+	IdCurso TINYINT NOT NULL,
+	IdTurma INT NOT NULL,
+	CONSTRAINT PkIdCursoTurma PRIMARY KEY (IdCursoTurma),
+	CONSTRAINT FkIdCursoTurma FOREIGN KEY (IdCurso) REFERENCES Curso(IdCurso),
+	CONSTRAINT FkIdTurmaCursoTurma FOREIGN KEY (IdTurma) REFERENCES Turma(IdTurma)
+);
+
+
+CREATE TABLE ArquivoQuestao
+(
+	IdArquivoQuestao INT IDENTITY,
+	IdQuestao INT NOT NULL,
+	Arquivo VARCHAR(500) NOT NULL,
+	CONSTRAINT PkIdArquivoQuestao PRIMARY KEY (IdArquivoQuestao),
+	CONSTRAINT FkIdQuestaoArquivoQuestao FOREIGN KEY (IdQuestao) REFERENCES Questao(IdQuestao),
+	CONSTRAINT UqArquivoQuestao UNIQUE (Arquivo)
+);
+
+
