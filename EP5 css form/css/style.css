@@ -1,0 +1,749 @@
+﻿}
+*/
+
+/*-------------------------------------INICIO - RESET BASICO------------------------------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+	color:#424242;
+}
+/*-----------------------------------------------HEADER--------------------------------------------*/
+
+/*-----------------------------------------------FIM HEADER--------------------------------------------*/
+
+
+
+/*----------------------------------------------------INICIO DO CONTEÚDO-----------------------------------------------------------------*/
+
+/*Formulario criado pelo Danilo */
+/* Layout pagina de login */
+
+
+/* Espaçamento pagina */
+.container {
+	margin: auto;  
+	padding: 120px 0;
+	-webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+	color:#424242;
+}
+
+/* FORMULARIO / FORMATAÇÃO */
+#loginform {	
+	background-color: #f7f7f7;
+	display: block;
+	height: 244px;
+	margin: 0 auto;	
+	outline: solid 1px rgba(0,0,0,0.8);
+	width: 215px;
+	padding: 70px;
+}
+
+/* titulo */
+.login-username:before { 
+	content: "Login";
+	color: #4c4c4c;	
+	font-size: 30px;
+	text-transform: uppercase;
+	margin: 50px;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+} 
+ .login-usernameRec:before { 
+	content: "Recupera Senha";
+	color: #4c4c4c;	
+	font-size: 15px;
+	text-transform: uppercase;
+	margin: 30px;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+} 
+
+  .login-username label, .login-password label {
+	display: none;
+	text-indent: -9999px;
+}
+ 
+.login-username .input{ 
+	margin-top: 15px;
+ } 
+
+.login-password .input { margin-top: -54px;}
+ 
+ ::-moz-placeholder {  /* Firefox 19+ */
+   color: #4c4c4c;
+   text-transform: uppercase;
+}
+
+::-webkit-input-placeholder {
+   color: #5d5b5b;
+   text-transform: uppercase;
+}
+
+/* formato das caixas e fonte */
+
+.input { 
+	background-color: #fff;
+	cursor: text;
+	border: solid 1px #dedede; 
+	box-sizing: border-box;
+	color: #4c4c4c;
+	font: 40 13px/18px 'tilitium_web';
+	height: 40px;
+	margin-bottom: -18px;
+	outline: none;
+	padding: 8px 15px;
+	transition: border 0.3s;
+	width:100%;
+}
+p{
+	text-align: justify;
+}
+
+.input:focus { border: solid 1px #f35b5b; }
+
+/* configurações da caixa email */
+
+.login-username:after {
+	content: '*';	
+	color: #f35b5b;
+	height: 30%;
+	width: 30%;
+	float: right;
+	font: 400 24px 'tilitium_web';
+	line-height: 43px;
+	position: relative;
+	overflow: hidden;
+	right: 2px;
+	text-align: center;
+	top: -24px;
+}
+
+/* configurações da caixa senha */
+.login-password:after {
+	content: '*';	
+	color: #f35b5b;
+	height: 30%;
+	width: 30%;
+	float: right;
+	font: 400 24px 'tilitium_web';
+	line-height: 43px;
+	position: relative;
+	overflow: hidden;
+	right: 2px;
+	text-align: center;
+	top: -24px;
+}
+
+
+/* botão entrar */
+.button-primary {
+	background-color: #b22222;
+	border: solid 1px transparent; 
+	box-sizing: border-box;
+	border-radius:4px;
+	color: #fff;
+	cursor: pointer;
+	font:  14px/36px 'tilitium_web';
+	height: 42px;
+	letter-spacing: 1px;
+	margin-top: -11px;
+	outline: none;
+	text-align: center;
+	text-transform: uppercase;
+	transition: background-color 0.5s;
+	width: 100%;
+}
+
+.button-primary:hover {
+	background-color: #469DB6;
+
+}
+
+
+/* Fim */
+
+
+
+
+/*------------------------------------------FORMULARIO - PADRÃO---------------------------------------*/
+
+/* Configuração do formulario de cadastro */
+
+
+.FrmCadastro{
+width:100%;
+height:100%;
+float:left;
+
+}
+/*designer do input , para atingir um campo em especifico, basta colocar [type="tipo"] na frente da tag input*/
+.FrmCadastro input {
+width:40%;
+margin-left:20px;
+margin-right:20px;
+vertical-align:left;
+}
+
+.FrmCadastro input[type="date"] {
+width:15%;
+margin-left:20px;
+margin-right:20px;
+vertical-align:left;
+}
+
+.FrmCadastro label {
+
+float:left;
+vertical-align:left;
+}
+.FrmCadastro input[type="radio"]
+{
+	 display:inline-block;
+    height:20px;
+    padding:0 0 0 25px;
+    margin:0 10px 0 0;
+    background-image:url(http://www.webcis.com.br/images/imagens-noticias/checkbox/ico-master.png);
+    background-repeat:no-repeat;
+    background-position:0 0;
+	width:200px;
+}
+
+.FrmCadastro input[type="email"] {
+width:50%;
+margin-left:20px;
+margin-right:20px;
+vertical-align:left;
+}
+.FrmCadastro input[name="endereco"] {
+width:50%;
+margin-left:2px;
+margin-right:20px;
+vertical-align:left;
+}
+/*configuração do botão */
+.botao{
+margin-left:10px;
+margin-right:10px;
+margin-top:1px;
+
+}
+/* Define a configuração do campo input */
+.PgCadastro input{
+padding-left:20px;
+color:#292929;
+font-size:18px;
+background-color:#e9e9e9;
+border:1px solid #e9e9e9;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+border-radius:5px;
+height:40px;
+margin-bottom:20px;
+border-bottom:1px solid #ccc;
+border-left:1px solid #ccc;
+	
+}
+.FrmCadastro textarea{ 
+	width:40%;
+	margin-left:10px;
+	margin-right:10px;
+	
+}
+.PgCadastro textarea
+{   
+	padding-left:160px;
+	color:#292929;
+	font-size:18px;
+	background-color:#e9e9e9;
+	border:1px solid #e9e9e9;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	height:200px;
+	margin-bottom:20px;
+	border-bottom:1px solid #ccc;
+	border-left: 1px solid #ccc;
+}
+/*designer do botão*/
+.botao{
+	border-radius:4px;
+	color:#fff;
+	padding:2px 40px;
+	height:40px;
+	margin-top:18px;
+	opacity:0.9;
+	margin-bottom:20px;
+	cursor:pointer;
+	background:#b22222;
+	display:inline-block;
+	border:none;
+	border-bottom:1px solid #500707;
+	border-right: 1px solid #500707;
+	margin-left:50%;
+}
+.botao{
+	opacity:1.0;
+	transition:1s;
+}
+/* esta classe serve para pular linha de uma label para outra */
+.row{
+	clear:both;
+}
+
+/*----------------------------------LAYOUT PARA DESKTOP---------------------------------------------------*/
+
+/* Caixa de conteúdo do site */
+.caixadetexto {
+	width: 1100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*Definição de cor dos elementos dentro da caixa de texto em cada seção*/
+.sobre .titulo,
+.sobre p,
+.sobre h2 {
+	color: #424242;
+}
+.depoimentos .titulo,
+.depoimentos  p,
+.depoimentos h2 {
+	color: #424242;
+}
+
+/*Definição do titulo da seção. EX: "SOBRE A IMPACTA*/
+.titulo {
+	font-size: 40px;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	font-color: #424242;
+	margin-top: 50px;
+	margin-bottom: 30px;
+	letter-spacing: 5px;
+
+}
+
+/*Define as colunas divididas em 3 na pagina*/
+.conteudo{
+	margin-top:99px;
+}
+.caixadetextoNoticias{
+	text-align:center;
+	width:87%;	    
+	margin-left: 45px;
+	padding-left: 1px;
+	padding-right: 30px;
+	margin-bottom:35px;
+	
+}
+.conteudoNoticias{
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+	padding:20 0px;
+	font-family: 'titillium_web';
+	font-color:#424242;
+	margin-top:200px;
+	
+}
+.ClassImgPrincipal{
+	width: 96%;
+	margin-left: 15px;
+}
+.coluna3 {
+	
+	float: left;
+	margin-left: 20px;
+	text-align: center;
+
+	width: 30.3333%;
+	padding-left: 30px;
+	padding-right: 30px;
+	box-sizing: border-box;
+	margin-bottom:70px;
+
+}
+.coluna4 {
+	
+	float: left;
+	margin-left: 20px;
+	text-align: center;
+
+	width: 45%;
+	padding-left: 30px;
+	padding-right: 30px;
+	box-sizing: border-box;
+	margin-bottom:70px;
+
+}
+
+.coluna2 {
+	width: 360px;
+	text-align: center;
+	box-sizing: border-box;
+	
+}
+
+
+.img_depoimento{
+	border-radius: 50px;
+
+}
+
+.img_noticias{
+	border-radius:200px;
+	width:360px;
+}
+
+.texto_noticias{
+	font-size:16px;
+	margin-bottom:70px;
+}
+.campus{
+	width: 500px;
+}
+.img_campus{
+	float:left;
+	border-radius: 10px;
+	width:500px;
+}
+.caixa_contato{
+	display:flex;
+	width:100%;
+	flex-direction:row;
+}
+.textocontato{
+	margin-left: 35px;
+	text-align: center-justify;
+	width: 320px;
+	
+}
+
+	
+.conteudo{
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+	padding:20 0px;
+	font-family: 'titillium_web';
+	font-color:#424242;
+	
+}
+	 
+section {
+ clear:both;
+}	
+	 
+
+/*----------------------------------LAYOUT PARA TABLET-------------------------------------------------*/
+	 
+/*query para tablet */
+@media screen and (max-width: 1300px) {
+#loginform {	
+	background-color: #f7f7f7;
+	display: block;
+	height: 244px;
+	margin: 0 auto;	
+	outline: solid 1px rgba(0,0,0,0.8);
+	width: 216px;
+	padding: 70px;
+}
+
+
+.caixadetexto {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.titulo_contato{
+	width:100%;
+	height:35px;
+}
+
+.coluna3 {
+    float: left;
+	margin-left: 50px;
+	text-align: center;
+	width: 70%;
+	padding-left: 30px;
+	padding-right: 30px;
+	margin-bottom:35px;
+	text-align: center;
+}
+.coluna4 {
+    float: center;
+	margin-left: 50px;
+	text-align: center;
+	width: 100%;
+	padding-left: 30px;
+	padding-right: 30px;
+	margin-bottom:35px;
+	text-align: center;
+}
+.coluna2{
+	text-align: center;
+}
+	
+}	
+.titulo {
+	font-size: 20px;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	font-color:#424242;
+	margin-top: 25px;
+	margin-bottom: 15px;
+	letter-spacing: 2px;
+	
+
+
+}
+
+}
+
+
+
+
+
+/*----------------------------------LAYOUT PARA CELULAR-------------------------------------------------*/
+
+/*query para celular*/
+@media screen and (max-width: 480px) {
+	
+#loginform {	
+	background-color: #f7f7f7;
+	display: block;
+	height: 244px;
+	margin: 0 auto;	
+	outline: solid 1px rgba(0,0,0,0.8);
+	width: 100px;
+	padding: 70px;
+}
+
+
+.titulo {
+	font-size: 20px;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	font-color:#424242;
+	margin-top: 25px;
+	margin-bottom: 15px;
+	letter-spacing: 2px;
+}
+
+.caixadetexto {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.coluna3 {
+    float: center;
+	width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 30px;
+	padding-right: 30px;	
+}
+
+
+
+
+
+@media screen and (max-width: 580px) {
+	.img_campus{
+		width: 330px;
+	}
+}
+@media screen and (max-width: 1000px) {
+	.caixa_contato{
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 10px;
+
+	}
+	
+}
+
+@media screen and (max-width: 1100px) {
+	.conteudocaixadetexto{
+		display: flex;
+		flex-direction: column;
+		}
+		
+}
+
+
+/*--------------------------------------------FIM INDEX------------------------------------------------------*/
+
+
+
+/*--------------------------------------------PAGINA DOS CURSOS------------------------------------------------------*/
+
+/*---------------------------------------------LAYOUT PAG. CURSO>ADM-------------------------------------*/
+@media screen and (max-width: 460px) {
+#loginform {	
+	background-color: #f7f7f7;
+	display: block;
+	height: 244px;
+	margin: 0 auto;	
+	outline: solid 1px rgba(0,0,0,0.8);
+	width: 155px;
+	padding: 70px;
+}
+.container {
+	margin: auto;  
+	padding: 120px 0;
+	-webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+	color:#424242;
+	width:200px;
+}
+	
+a:hover {
+	text-decoration: underline;  
+	color:#000; 
+	font-size:103%; 	
+}
+	
+
+/*----------------------------------- fim --------------------------------------*/
+
+/*-------------------PAGINA DAS DISCIPLINAS----------------*/
+.ClassImgDisciplinas{
+	text-align: center;
+	width:40%;
+	padding-left: auto;
+	padding-right: auto;
+	margin-bottom:35px;
+	text-align:center;
+}
+
+@media screen and (max-width: 1300px) {
+.ClassImgDisciplinas{
+
+	margin-left: 20px;
+	text-align: center;
+	width:40%;
+	padding-left: auto;
+	padding-right: auto;
+	margin-bottom:35px;
+
+}
+
+@media screen and (max-width: 480px) {
+.ClassImgDisciplinas{
+	width:100%;
+	text-align: center;
+}
+
+}
+@media screen and (max-width: 800px) {
+.FrmCadastro input[type="radio"] {
+	display:inline-block;
+    height:20px;
+    padding:0 0 0 25px;
+    margin:0 10px 0 0;
+    background-image:url(http://www.webcis.com.br/images/imagens-noticias/checkbox/ico-master.png);
+    background-repeat:no-repeat;
+    background-position:0 0;
+	width:40px;
+
+
+}
+}
+
+
+
+/*------------------------------------------FORMULARIO - PADRÃO---------------------------------------*/
+
+/* Configuração do formulario de cadastro */
+
+
+.FrmCadastro{
+	width:100%;
+	float:left;
+
+}
+/*designer do input , para atingir um campo em especifico, basta colocar [type="tipo"] na frente da tag input*/
+.FrmCadastro input {
+	width:40%;
+	margin-left:20px;
+	margin-right:20px;
+	vertical-align:left;
+}
+.FrmCadastro label {
+
+	float:left;
+	vertical-align:left;
+}
+
+
+.FrmCadastro input[type="email"] {
+	width:50%;
+	margin-left:20px;
+	margin-right:20px;
+	vertical-align:left;
+}
+.FrmCadastro input[name="endereco"] {
+	width:50%;
+	margin-left:2px;														
+	margin-right:20px;
+	vertical-align:left;	
+}
+/*configuração do botão */
+.botao{
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:1px;
+
+}
+/* Define a configuração do campo input */
+.PgCadastro input{
+	padding-left:20px;	
+	color:#292929;
+	font-size:18px;
+	background-color:#e9e9e9;
+	border:1px solid #e9e9e9;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	height:40px;
+	margin-bottom:20px;
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;	
+		
+}
+/*designer do botão*/
+.botao{
+	border-radius:4px;
+	color:#fff;
+	padding:2px 40px;
+	height:40px;
+	margin-top:18px;
+	opacity:0.9;
+	margin-bottom:20px;
+	cursor:pointer;
+	background:#b22222;
+	display:inline-block;
+	border:none;
+	border-bottom:1px solid #500707;
+	border-right: 1px solid #500707;
+	margin-left:50%;
+}
+.botao{
+	opacity:1.0;
+	transition:1s;
+}
+/* esta classe serve para pular linha de uma label para outra */
+.row{
+	clear:both;
+}

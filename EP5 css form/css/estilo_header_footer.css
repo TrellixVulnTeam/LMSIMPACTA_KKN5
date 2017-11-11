@@ -1,0 +1,166 @@
+body{
+	margin:0;
+	font-family: sans-serif;
+}
+/*Botão do menu com a tela pequena*/
+#btnreder{
+	display:none;
+}
+#btnredes{
+	display: none;
+}
+.logo_header{
+	display: flex;
+	float: left;
+}
+/*Div do Menu*/
+header{
+	background-color: #424242;
+	font-weight: 500;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	min-height: 7%;
+	opacity:0.95;
+
+}
+
+/*Propriedades do botão do menu da tela pequena*/
+header label{
+	color: #efefef;
+	font-size: 170%;
+	display: block;
+	padding: 5px 10px;
+	width: 30px;
+	border-right: 1px solid #e8eaf6;
+	display: none;
+
+}
+/*hover menu tela pequena*/
+header label:hover{
+	background-color: black;
+}
+/*Lista de itens do menu*/
+.reder{
+	width: 600px;
+}
+.reder ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	transition: all .5s;
+	justify-content: flex-start;
+
+}
+/*formatação de cada item da lista*/
+.topo_do_reder li a {
+	color: #e8eaf6;
+	text-decoration: none;
+	padding: 15px 20px;
+	display: block;
+	border-radius: 8px;
+	margin: 4px 2px;	
+    transition: all .6s;
+}
+.topo_do_reder{
+	width: 400px;
+	float: left;
+}
+/*login / cadastro*/
+.log_cad_header{
+	float: right;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	height: 56px;
+	width: 290px;
+    margin:0 2px;
+}
+.log_cad_header li a{
+	color: #e8eaf6;
+	text-decoration: none;
+	padding: 10px 20px;
+	border-radius: 3px;
+	margin: 4px 2px;	
+    transition: all .6s;
+    display: flex;
+}
+.invis_menu{
+	display: none;
+}
+.log_header {
+	display: flex;
+}
+.log_header a{
+	border:.5px solid #e8eaf6;
+}
+.cad_header{
+	display: flex;	
+}
+.cad_header a{
+	background-color: #12ab45;
+	border: 1px solid #0d7d32;
+}
+/*Hover do menu*/
+.topo_do_reder a:hover{
+	background-color: #8b8c8e;
+}
+.log_header a:hover{
+	color: #424242;
+	background-color: #e8eaf6;
+}
+.cad_header a:hover{
+	background-color: #0d7d32;
+}
+
+.footer_copy {
+	display: flex;
+	justify-content: center;
+    bottom:0;
+    width:100%;
+}
+
+@media (max-width: 780px) {
+		.header label{
+			display: block;
+			float:left;
+		}
+		.reder ul{
+			position: absolute;
+			background-color: #2f2f2f;
+			width: 70%;
+			flex-direction: column;
+			margin-top: -200%;
+		}
+		.reder li a{
+			margin: .5px;
+			width: 85%;
+
+		}
+		#btnreder:checked ~ .reder ul{
+			margin-top: 46px;
+
+		}
+
+}
+/*faz os botoes de cursos ficarem com 2 colunas quando o tamanho da tela for 900px*/
+@media (max-width: 970px){	
+	.log_right{
+		display:none;	
+	}	
+	.invis_menu{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 50px;
+		height: 46px;
+		float: right;
+		border-radius: 3px;
+	}
+	.invis_menu:hover{
+			background-color: #8b8c8e;
+
+	}
+}
