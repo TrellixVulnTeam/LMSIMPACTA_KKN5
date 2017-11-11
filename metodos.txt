@@ -15,7 +15,14 @@ def aplica_teste(self):
         return HttpResponse(template.render)
     else:
         print("Teste já feito")
+        
+ def tarefa_nao_enviada(self, Aluno):
+	AlunosResponderam = Resposta.objects.all()
+	for Ra in AlunosQueFizeram.Ra:
+		if RA == Aluno.RA:
+			return print("Já fez o teste")
+		else:
+			return teste
 
-#é importante lembrar que alguns metodos da lista do professor Fernando terão de ter acesso ao BD e ainda não sabemos como fazer isso
-#com eficiência. Por isso esta lista ainda será atualizada futuramente. A construção dos métodos de testes serão incrementados aqui 
+#Esta lista ainda será atualizada futuramente devido a interatividade do HTML. A construção dos métodos de testes serão incrementados aqui 
 # quando houver um cliente cadastrado no BD para que possa realmente fazer o teste.
