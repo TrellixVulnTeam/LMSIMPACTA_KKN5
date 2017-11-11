@@ -52,6 +52,21 @@
 	margin: 50px;
 	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
 } 
+.login-usernameRec:after{
+	content: '*';	
+	color: #f35b5b;
+	height: 30%;
+	width: 30%;
+	float: right;
+	font: 400 24px 'tilitium_web';
+	line-height: 43px;
+	position: relative;
+	overflow: hidden;
+	right: 2px;
+	text-align: center;
+	top: -24px;
+	
+}
  .login-usernameRec:before { 
 	color: #4c4c4c;	
 	font-size: 15px;
