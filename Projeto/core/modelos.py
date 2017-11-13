@@ -49,7 +49,7 @@ class Curso(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
     sigla = models.CharField(db_column='Sigla', unique=True, max_length=5)  # Field name made lowercase.
     nome = models.CharField(db_column='Nome', unique=True, max_length=50)  # Field name made lowercase.
-
+    
     class Meta:
         managed = False
         db_table = 'Curso'

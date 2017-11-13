@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>FIT - Faculdade Impacta Tecnologia</title>
+		<meta charset="utf-8"/>
+		<link  rel="stylesheet " type="text/css" href="../../static/css/style.css"/>
+		<link rel="stylesheet" href="../../static/css/estilo_header_footer.css">
+		<link href="../../static/css/fontes/titillium-web.css" rel="stylesheet" />
+		<link rel="shortcut icon" href="../../static/img/logo_title.png">
+		<script type="text/javascript" src="../js/script.js"> </script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+	<header class="header">
+		<input type="checkbox" id="btnreder">
+		<label for="btnreder">&#9776;</label>
+		<nav class="reder">
+			<a href="../index.html" class="logo_header">
+				<img src="../../static/img/logo.png" alt="Logo da Impacta">
+			</a>
+
+			<ul class="topo_do_reder">
+				<li><a href="../index.html">Home</a></li>
+				<li><a href="../index.html#depoimentos">Sobre</a></li>
+				<li><a href="../src/contato.html">Contato</a></li>
+			
+			</ul>			
+		</nav>
+		<nav class="log_right">
+			<ul class="log_cad_header">
+				<li class="log_header">
+					<a href="login.html" role="button">LOGIN</a>
+				</li>
+				<li class="cad_header">
+					<a href="cadastro.html" role="button">FAÇA SUA MATRÍCULA</a>
+				</li>
+			</ul>
+		</nav>
+		<nav class="invis_menu">
+			<a href="cadastro.html"><img src="../../static/img/cadastro.png" alt="logo cadastro"></a>
+		</nav>		
+		<nav class="invis_menu">
+			<a href="cadastro.html"><img src="../../static/img/login.png" alt="logo login"></a>
+		</nav>
+	</header>
+
+	<main class="conteudo">
+		<div class="container-2x1">
+			<div class="PgCadastro">
+				<div class="Cadastro">
+				        <div class="FrmCadastro">
+							<h1 class="titulo_form_contato">Entre em Contato conosco!!!</h1>
+					  
+							<form id="FrmCadastro" tabindex="1" method="POST" action="concluido.html" >
+								<div class="row">
+									 <label for="nome">*Nome:</label>
+									<input id="nome" name="nome" required="" type="text" placeholder="Nome"/>
+								 </div>
+								 <div class="row">
+										<label for="email">*E-Mail:</label>
+										<input id="email" name="email" required="" type="email" placeholder="Digite o seu endereço de email...."/>
+								</div>
+								 <div class="row">
+										<label for="tel">Tel/cel:</label>
+										<input id="tel" name="tel"  type="tel" placeholder="Telefone:"/>
+								 </div>
+								
+								  <div class="row">
+										<label for="mensagem">*Mensagem: </label>
+										<textarea id="mensagem" name="mensagem" required="" type="tel" maxlength="200" placeholder="Digite sua mensagem(máximo 200 caracteres)"></textarea>
+								 </div>
+								 <div class="">
+										<button class="botao" type="submit">Enviar</button>
+								 </div>
+							 </form>
+					   </div>
+				  </div>
+			
+			</div>
+		</div>
+	</main>
+	
+	<footer class="footer_copy"><p>&copy; Impacta 2017. Todos os direitos reservados.</p></div>
+
+	
+	
+</body>
+</html>

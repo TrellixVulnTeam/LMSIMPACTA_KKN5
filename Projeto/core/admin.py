@@ -7,3 +7,4 @@ from core.modelos import Aluno, Disciplina, Curso
 admin.site.register(Curso)
 admin.site.register(Disciplina)
 admin.site.register(Aluno)
+
