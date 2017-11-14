@@ -20,8 +20,9 @@ from core.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 	url(r'^$', index),
-	url(r'^/login.html', login),
-	url(r'^/contato.html', contato),
-	url(r'^/cadastro.html', cadastro),
-	url(r'^/aluno.html', aluno),
+    url(r'^index.html', index),
+	url(r'^login.html', login),
+	url(r'^contato.html', contato),
+	url(r'^cadastro.html', cadastro),
+	url(r'^aluno.html', aluno),
 ]
