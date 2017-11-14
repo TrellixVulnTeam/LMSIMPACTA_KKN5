@@ -24,7 +24,16 @@ header{
 	opacity:0.95;
 
 }
+.logo_header img{
+	margin-top: 5px;
+}
+.logo_header{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
+
+}
 /*Propriedades do botão do menu da tela pequena*/
 header label{
 	color: #efefef;
