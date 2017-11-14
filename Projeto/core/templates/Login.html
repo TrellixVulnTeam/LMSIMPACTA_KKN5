@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>FIT - Faculdade Impacta Tecnologia</title>
+		<meta charset="utf-8"/>
+		<link  rel="stylesheet " type="text/css" href="../static/css/style.css"/>
+		<link rel="stylesheet" href="../static/css/estilo_header_footer.css">
+		<link href="../static/css/fontes/titillium-web.css" rel="stylesheet" />
+		<link rel="shortcut icon" href="../static/img/logo_title.png">
+		<script type="text/javascript" src="../js/script.js"> </script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+	<header class="header">
+		<input type="checkbox" id="btnreder">
+		<label for="btnreder">&#9776;</label>
+		<nav class="reder">
+			<a href="index.html" class="logo_header">
+				<img src="../static/img/logo.png" alt="Logo da Impacta">
+			</a>
+
+			<ul class="topo_do_reder">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="sobre.html">Sobre</a></li>
+				<li><a href="contato.html">Contato</a></li>
+			
+			</ul>			
+		</nav>
+		<nav class="log_right">
+			<ul class="log_cad_header">
+				<li class="log_header">
+					<a href="login.html" role="button">LOGIN</a>
+				</li>
+				<li class="cad_header">
+					<a href="cadastro.html" role="button">FAÇA SUA MATRÍCULA</a>
+				</li>
+			</ul>
+		</nav>
+		<nav class="invis_menu">
+			<a href="cadastro.html"><img src="../static/img/cadastro.png" alt="logo cadastro"></a>
+		</nav>		
+		<nav class="invis_menu">
+			<a href="cadastro.html"><img src="../static/img/login.png" alt="logo login"></a>
+		</nav>
+	</header>
+
+	
+	<div id="main" class="container"> 	
+	 <form name="loginform" id="loginform" action="concluidologin.html" method="post" class="wpl-track-me"> 
+	 	<h1 class="h1_form_Login	">Login</h1>
+		<p class="login-username">
+		<label for="user_login">Email:</label> 
+			<!-- Se é e-mail, use o cmapo e-mail -->
+			<input type="text" name="log" id="user_login" class="input" placeholder="Email" value="" size="20" /> 
+		</p> 
+		<p class="login-password"> 
+		<label for="user_pass">Senha:		</label><input type="password" name="pwd" id="user_pass" class="input" placeholder="Senha" value="" size="20" /> 
+		</p> 	
+		<p class="login-remember"><label><input name="rememberme" type="checkbox" id="rememberme" value="forever"> Lembrar Login</label></p>
+		<p class="login-submit"><input type="submit" name="wp-submit" id="wp-submit" class="button-primary" value="Entrar" />
+		<input type="hidden" name="redirect_to" value="#"/>
+		</p> 
+		<a href="esquecisenha.html"> Esqueci minha senha</a>
+		
+		</p>
+
+		
+	</form> 
+</div>
+	
+
+
+
+	<footer class="footer_copy"><p>&copy; Impacta 2017. Todos os direitos reservados.</p></div>
+
+</body>
+</html>

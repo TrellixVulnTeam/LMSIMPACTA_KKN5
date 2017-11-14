@@ -1,29 +1,140 @@
-{% extends 'base.html' %}
-{% block scripts %}
-    {{ block.super }}
-<link rel="stylesheet" href="/static/site2.css"/>
-{% endblock %}
-{% block conteudo %}
-    <nav>
-        {% if not logado %}
-            <a href="/login">Login</a>
-        {% else %}    
-            <span>Olá {{ usuario }}</span>
-        {% endif %}
-    </nav>
-    <h2>Cursos</h2>
-    <ul>
-        {% for curso in cursos %}
-            {% if curso.ativo %}
-                <li class="{{ curso.tipo }}"  >{{ curso.nome }} - {{ curso.tipo }}</li>
-            {% endif %}
-        {% endfor %}    
-    </ul>
-    {% if idade < 18 %}
-        <h3> Para menores de idade! </h3>
-    {% elif idade >= 18 and idade < 30 %}
-        <h3> Para maiores de idade mas não tão velho!</h3>
-    {% else %}
-        <h3>Seu velho!</h3>
-    {% endif %}
-{% endblock %}
+<!DOCTYPE html>
+<html lang="pt-br"> <!-- define o idioma em que está sendo desenvolvida a aplicação-->
+
+<!-- INICIO -->
+<!-- Define padrão de escrita, aponta o css, script e define o Title da pagina -->
+	<head>
+		<title>FIT - Faculdade Impacta Tecnologia</title>
+		<meta charset="utf-8"/>
+		<link  rel="stylesheet " type="text/css" href="../static/css/style.css">
+		<link rel="stylesheet" href="../static/css/estilo_header_footer.css">
+		<link href="../static/css/fontes/titillium-web.css" rel="stylesheet" />
+		<link rel="shortcut icon" href="../static/img/logo_title.png">
+		<script type="text/javascript" src="../static/js/script.js"> </script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+		
+		<header class="header">
+			<input type="checkbox" id="btnreder">
+			<label for="btnreder">&#9776;</label>
+			<nav class="reder">
+				<a href="index.html" class="logo_header">
+					<img src="../static/img/logo.png" alt="Logo da Impacta">
+				</a>
+
+				<ul class="topo_do_reder">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="aluno.html">Alunos</a></li><li><a href="contato.html">Contato</a></li>
+				
+				</ul>			
+			</nav>
+			<nav class="log_right">
+				<ul class="log_cad_header">
+					<li class="log_header">
+						<a href="login.html" role="button">LOGIN</a>
+					</li>
+					<li class="cad_header">
+						<a href="cadastro.html" role="button">FAÇA SUA MATRÍCULA</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="invis_menu">
+				<a href="cadastro.html"><img src="../static/img/cadastro.png" alt="logo cadastro"></a>
+			</nav>		
+			<nav class="invis_menu">
+				<a href="cadastro.html"><img src="../static/img/login.png" alt="logo login"></a>
+			</nav>
+		</header>
+
+
+	
+		<main class="conteudo">
+			<img class="ClassImgPrincipal" src = "../static/img/imgprincipal.jpg" alt="Img Siga a Impacta" >
+			
+			<!--INICIO DO CONTEUDO DO SITE-->
+			
+			<section class="">
+				<div class="caixadetexto">
+
+					<div class="conteudocaixadetexto">
+
+						<div id="depoimentos">	
+							<h1 class="titulo">Sobre a Impacta</h1>
+						</div>
+						
+						<div class= "coluna3">
+							<h2>Missão</h2>
+							<p>
+							A missão da Faculdade Impacta Tecnologia é oferecer um ambiente propício à formação integral do ser humano, proporcionando uma educação comprometida com a ética, a cidadania, 
+							o conhecimento e o atendimento às necessidades contemporâneas, por meio de uma estrutura educacional inovadora e diferenciada, contribuindo para uma melhor qualidade de vida 
+							do indivíduo e da sociedade.
+							</p>
+						</div>					
+					
+						<div class= "coluna3">
+							<h2>Quem Somos</h2>
+							<p>
+							A Faculdade Impacta Tecnologia nasceu da percepção de um Grupo, <br>
+							que desde 1998 é referência em TI, Gestão e Design, para suprir a falta de <br>
+							mão de obra especializada do mercado de tecnologia <br>
+							e oferecer uma formação completa e multidisciplinar aos alunos.<br>
+							</p>
+						</div>							
+						
+						<div class= "coluna3">
+							<h2>Por que estudar na Impacta?</h2>
+							<p>
+							Com a missão de levar o estado da arte em matéria de tecnologia de ponta às empresas e formar profissionais capazes e competentes, a Faculdade Impacta Tecnologia 
+							oferece cursos de Graduação, Pós-Graduação, Extensão e MBA, ministrados por mestres e doutores com experiência de mercado, que preparam os estudantes para a realidade do mercado 
+							de trabalho e proporcionam uma educação comprometida com a ética, a cidadania, o conhecimento e o atendimento às necessidades contemporâneas,
+							por meio de uma estrutura educacional inovadora e diferenciada.<br>
+							</p>
+						</div>
+		
+					</div>
+				</div>
+			</section>
+			
+			 
+			<section class = "depoimentos">
+				<div class = "caixadetexto">
+					<h1 class="titulo">Depoimentos</h1>
+							<div class = "conteudocaixadetexto">
+								<div class = "coluna3">
+								<img class="img_depoimento" src="../static/img/dep01.jpg" alt="Thiago Mancuzo"/>
+								<h2>Thiago Mancuzo</h2>
+								<p>
+									"Graduação conceituada no mercado de trabalho. Oferece diversos cursos e palestras durante o ano letivo. Estrutura sempre recebendo melhorias. Oferece traslado gratuito para a Estação Barra Funda do metrô."
+								</p>
+								</div>
+								
+								<div class = "coluna3">
+								<img class="img_depoimento" src="../static/img/dep02.jpg" alt="Erica Ferreira"/>
+								<h2>Erica Ferreira</h2>
+								<p>
+									"Sou aluna da Faculdade Impacta, e estou muito satisfeita com metodologia de ensino que eles utilizam é excelente, aulas gravadas e professores de altos níveis além de uma infra-estrutura apropriada para atender todos os tipos de alunos. Parabéns !!"
+								</p>
+								</div>
+								
+								<div class = "coluna3">
+								<img class="img_depoimento" src="../static/img/dep03.jpg" alt="André Ribeiro"/>
+								<h2>André Ribeiro</h2>
+								<p>
+									"Essas aulas gravadas da faculdade Impacta são realmente uma novidade bacana, nem preciso levar caderno para anotar as informações, é só chegar em casa e assistir a aula com os comentários do professor. Idéia muito boa."
+								</p>
+								</div>
+								
+							</div>
+				</div>
+			</section>
+			<footer class="footer_copy"><p>&copy; Impacta 2017. Todos os direitos reservados.</p></div>
+				
+		</main>
+		
+
+		
+	
+
+</body>
+</html>
