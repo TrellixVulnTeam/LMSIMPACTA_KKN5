@@ -22,16 +22,16 @@ class Curso(models.Model):
     def __str__(self):
         return self.nome
 '''
-def AplicaTeste(self,Aluno):
-   AlunosResponderam = Resposta.objects.all()
-   for Ra in AlunosQueFizeram.Ra:
-       if RA == Aluno.RA:
-           return print ("Já fez o teste") 
-    else:
-        return "teste"
+def AplicaTeste(Aluno):
+    AlunosResponderam = Resposta.objects.all()
+    for Ra in AlunosQueFizeram.Ra:
+        if RA == Aluno.RA:
+            return print ("Já fez o teste") 
+        else:
+            return "teste"
     
 
-def Aluno_Enviaram(self,Aluno):
+def Aluno_Enviaram(Aluno):
     AlunosResponderam = Resposta.objects.all()
     TodosAlunos = Aluno.objects.all()
     for aluno in TodosAlunos:
@@ -40,7 +40,7 @@ def Aluno_Enviaram(self,Aluno):
                 ListaDosQueFizeram.append(TodosAlunos.Nome)
     return ListaDosQueFizeram
 
-def Alunos_N_Enviaram(self,Aluno):
+def Alunos_N_Enviaram(Aluno):
     AlunosQueResponderam = Resposta.objects.all()
     TodosAlunos = Aluno.objects.all()
     for Aluno in TodosAlunos:
@@ -49,23 +49,23 @@ def Alunos_N_Enviaram(self,Aluno):
                 ListaDosQueNaoFizeram.append(TodosAlunos.nome)
     return ListaDosQueNaoFizeram
 
-def VerificaPrazo(self,dataatual,Questao):
+def VerificaPrazo(dataatual,Questao):
     ValidaQuestao = Questao.objects.all()
     if ValidaQuestao.data_limite_entrega > dataatual:
         return print ( "você não pode entregar a questão pois passou da data limite")
     else:
         return "Grud resposta"
 
-def ValidaMatricula(self,Aluno,IdDisciplina):
+def ValidaMatricula(Aluno,IdDisciplina):
     Matriculas = Matricula.objects.all()
     Disciplinas = Disciplinaofertada.objects.all()
     turmas = turma.objects.all()
     for matricula in Matriculas:
-       for turma in turmas:
-           if matricula.idTurma == turma.idTurma:
-               if  turma.id_disciplinaofertada == IdDisciplina:
-                   print("Já possui matricula nesse disciplina")
-                   break
+        for turma in turmas:
+            if matricula.idTurma == turma.idTurma:
+                if turma.id_disciplinaofertada == IdDisciplina:
+                    print("Já possui matricula nesse disciplina")
+                    break
                 else:
                     print ("pode metricular")
 
