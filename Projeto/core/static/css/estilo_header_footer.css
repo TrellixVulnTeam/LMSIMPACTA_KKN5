@@ -60,7 +60,7 @@ header label:hover{
 	text-decoration: none;
 	padding: 15px 20px;
 	display: block;
-	border-radius: 8px;
+	border-radius: 3px;
 	margin: 4px 2px;	
     transition: all .6s;
 }

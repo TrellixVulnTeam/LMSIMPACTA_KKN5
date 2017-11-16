@@ -20,11 +20,13 @@
 				<img src="../static/img/logo.png" alt="Logo da Impacta">
 			</a>
 
-			<ul class="topo_do_reder">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="sobre.html">Sobre</a></li>
-				<li><a href="cursos.html">Cursos</a></li>
-				<li><a href="noticias.html">Noticias</a></li><li><a href="contato.html">Contato</a></li>
+				<ul class="topo_do_reder">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="aluno.html">Alunos</a></li>
+					<li><a href="index.html #index_home">Sobre</a></li>
+					<li><a href="contato.html">Contato</a></li>
+				
+				</ul>	
 			
 			</ul>			
 		</nav>
