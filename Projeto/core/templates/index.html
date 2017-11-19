@@ -6,11 +6,11 @@
 	<head>
 		<title>FIT - Faculdade Impacta Tecnologia</title>
 		<meta charset="utf-8"/>
-		<link  rel="stylesheet " type="text/css" href="css/style.css"/>
-		<link rel="stylesheet" href="css/estilo_header_footer.css">
-		<link href="css/fontes/titillium-web.css" rel="stylesheet" />
-		<link rel="shortcut icon" href="img/logo_title.png">
-		<script type="text/javascript" src="js/script.js"> </script>
+		<link  rel="stylesheet " type="text/css" href="../static/css/style.css">
+		<link rel="stylesheet" href="../static/css/estilo_header_footer.css">
+		<link href="../static/css/fontes/titillium-web.css" rel="stylesheet" />
+		<link rel="shortcut icon" href="../static/img/logo_title.png">
+		<script type="text/javascript" src="../static/js/script.js"> </script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
@@ -20,41 +20,43 @@
 			<label for="btnreder">&#9776;</label>
 			<nav class="reder">
 				<a href="index.html" class="logo_header">
-					<img src="img/logo.png" alt="Logo da Impacta">
+					<img src="../static/img/logo.png" alt="Logo da Impacta">
 				</a>
 
 				<ul class="topo_do_reder">
 					<li><a href="index.html">Home</a></li>
-					<li><a href="src/noticias.html">Alunos</a></li><li><a href="src/contato.html">Contato</a></li>
+					<li><a href="aluno.html">Alunos</a></li>
+					<li><a href="index.html #index_home">Sobre</a></li>
+					<li><a href="contato.html">Contato</a></li>
 				
 				</ul>			
 			</nav>
 			<nav class="log_right">
 				<ul class="log_cad_header">
 					<li class="log_header">
-						<a href="src/login.html" role="button">LOGIN</a>
+						<a href="login.html" role="button">LOGIN</a>
 					</li>
 					<li class="cad_header">
-						<a href="src/cadastro.html" role="button">FAÇA SUA MATRÍCULA</a>
+						<a href="cadastro.html" role="button">FAÇA SUA MATRÍCULA</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="invis_menu">
-				<a href="src/cadastro.html"><img src="img/cadastro.png" alt="logo cadastro"></a>
+				<a href="cadastro.html"><img src="../static/img/cadastro.png" alt="logo cadastro"></a>
 			</nav>		
 			<nav class="invis_menu">
-				<a href="src/cadastro.html"><img src="img/login.png" alt="logo login"></a>
+				<a href="cadastro.html"><img src="../static/img/login.png" alt="logo login"></a>
 			</nav>
 		</header>
 
 
 	
 		<main class="conteudo">
-			<img class="ClassImgPrincipal" src = "img/imgprincipal.jpg" alt="Img Siga a Impacta" >
+			<img class="ClassImgPrincipal" src = "../static/img/imgprincipal.jpg" alt="Img Siga a Impacta" >
 			
 			<!--INICIO DO CONTEUDO DO SITE-->
 			
-			<section class="">
+			<section id="index_home">
 				<div class="caixadetexto">
 
 					<div class="conteudocaixadetexto">
@@ -102,7 +104,7 @@
 					<h1 class="titulo">Depoimentos</h1>
 							<div class = "conteudocaixadetexto">
 								<div class = "coluna3">
-								<img class="img_depoimento" src="img/dep01.jpg" alt="Thiago Mancuzo"/>
+								<img class="img_depoimento" src="../static/img/dep01.jpg" alt="Thiago Mancuzo"/>
 								<h2>Thiago Mancuzo</h2>
 								<p>
 									"Graduação conceituada no mercado de trabalho. Oferece diversos cursos e palestras durante o ano letivo. Estrutura sempre recebendo melhorias. Oferece traslado gratuito para a Estação Barra Funda do metrô."
@@ -110,7 +112,7 @@
 								</div>
 								
 								<div class = "coluna3">
-								<img class="img_depoimento" src="img/dep02.jpg" alt="Erica Ferreira"/>
+								<img class="img_depoimento" src="../static/img/dep02.jpg" alt="Erica Ferreira"/>
 								<h2>Erica Ferreira</h2>
 								<p>
 									"Sou aluna da Faculdade Impacta, e estou muito satisfeita com metodologia de ensino que eles utilizam é excelente, aulas gravadas e professores de altos níveis além de uma infra-estrutura apropriada para atender todos os tipos de alunos. Parabéns !!"
@@ -118,7 +120,7 @@
 								</div>
 								
 								<div class = "coluna3">
-								<img class="img_depoimento" src="img/dep03.jpg" alt="André Ribeiro"/>
+								<img class="img_depoimento" src="../static/img/dep03.jpg" alt="André Ribeiro"/>
 								<h2>André Ribeiro</h2>
 								<p>
 									"Essas aulas gravadas da faculdade Impacta são realmente uma novidade bacana, nem preciso levar caderno para anotar as informações, é só chegar em casa e assistir a aula com os comentários do professor. Idéia muito boa."
