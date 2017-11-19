@@ -1,11 +1,22 @@
-function Show_hide(){
-	var pixels=0;
-	alert("teste")
-	if (document.getElementById('#btnMenuLateral').checked==true){
+/*function ShowHide_apk(){
+	if (document.getElementById('btnMenuLateral').checked == true){	
+		document.getElementById("menu_left").style.display = "block";
 		
-		document.getElementById('menu_left').css('marginLeft',pixels);	
 	}
-	
+	else{
+		document.getElementById("menu_left").style.display = "none";
 
+	}
+
+}*/
+function ShowHide_apk(){
+	if (document.getElementById('btnMenuLateral').checked == true){	
+		document.getElementById("menu_left").style.marginLeft = "0px";
+		
+	}
+	else{
+		document.getElementById("menu_left").style.marginLeft = "-500px";
+
+	}
 
 }

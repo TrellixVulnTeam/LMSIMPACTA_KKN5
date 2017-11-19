@@ -14,8 +14,8 @@ p{
 
 /*-------------MENU LATERAL-------------------------------*/
 
-#btnMenuLateral:checked ~ #menu_left{
-	margin-left: 10px;
+#btnMenuLateral{
+	display: none;
 
 }
 .div_btn_lateral{
@@ -47,8 +47,8 @@ p{
 
 
 #menu_left{
-	float: left;
-	margin-left: -400px;
+	float: left;	
+	margin-left:-500px;
 	position: absolute;
 	transition: all .2s linear;
 }
@@ -171,6 +171,9 @@ p{
 .perfil_aluno img{
 	border-radius: 300px;
 }
+.mural_recados{
+	min-width: 260px;
+}
 
 .mural_recados h1{
 	text-transform: uppercase;
@@ -186,7 +189,7 @@ p{
 	text-align: center;
 }
 .recado p {
-	margin: 0px 7px; 
+	margin: 0px 4px; 
 }
 
 /*-----------footer--------------------*/
@@ -211,10 +214,6 @@ p{
 }
 	
 
-.menu_right{
-	display: grid;
-	grid-template-rows: 25% 75%;
-}
 /*-----------MEDIA--------------------*/
 @media screen and (max-width: 1600px) {
 	
@@ -230,8 +229,47 @@ p{
 
 @media screen and (max-width: 1200px) {
 	.ContainerAluno{
-	display: grid;
-	grid-template-columns: 70% 30%;
-}
+		display: grid;
+		grid-template-columns: 70% 30%;
+	}
 
 }
+
+@media screen and (max-width: 900px) {
+
+	.mural_recados h1{
+		font-size: 26px;
+		width: 100%;
+	}
+	.recado h2{
+		font-size: 22px;
+
+	}
+	.recado p {
+		text-align: justify;
+		width: 80%;
+	}	
+
+}
+
+@media screen and (max-width: 860px) {
+
+	.blocos_Noticias p{
+		width: 400px;
+	}
+
+	.titulo_noticia{
+		width: 400px;
+	}
+
+}
+
+@media screen and (max-width: 800px) {
+
+	.recado h2{
+  		text-align: left;
+  		margin-left: 10px;
+	}
+
+}
+
