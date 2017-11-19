@@ -17,6 +17,7 @@ body{
 header{
 	background-color: #424242;
 	font-weight: 500;
+	height: 51px;
 	position: fixed;
 	width: 100%;
 	top: 0;
