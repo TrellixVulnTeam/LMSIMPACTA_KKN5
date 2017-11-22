@@ -74,6 +74,19 @@ WSGI_APPLICATION = 'lsmimpacta.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+
+
+
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'sql_server.pyodbc',
+#        'NAME': 'LMSIMPACTA',
+#        'USER': 'sa',
+#        'PASSWORD': '@Edgard1axl',
+#        'HOST': 'BRUNO\SQLEXPRESS',
+#    }
+#}
+
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
@@ -83,6 +96,8 @@ DATABASES = {
         'HOST': 'bancosql1700262.database.windows.net',
     }
 }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -121,3 +136,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+AUTH_USER_MODEL = 'core.Usuario'

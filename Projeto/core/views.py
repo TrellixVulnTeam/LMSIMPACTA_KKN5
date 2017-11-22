@@ -1,25 +1,20 @@
 from django.shortcuts import render
+from django.core.mail import send_mail
+from core.models import *
 
-'''from core.models import Curso
 
-def banana(requisicao):
+
+def index(request):
+    novo = Alunos_N_Enviaram()
     contexto = {
-        "cursos": Curso.objects.all(),
-        "faculdade":"Faculdade Impacta de Tecnologia",
+        "cursos": Aluno.objects.all(),
+        "faculdade":novo,
         "pagina":"Homepage",
         "usuario":"Yuri",
         "logado":True,
         "idade":-18
-    }
-    return render(requisicao,"index.html",contexto)
-
-def contato(request):
-    if request.POST:
-        print(request.POST['mensagem'])
-    return render(request,"contato.html")
-'''
-def index(request):
-	return render(request, 'index.html')
+        }
+    return render(request, 'index.html',contexto)
 	
 def login(request):
 	return render(request, 'login.html')
@@ -35,4 +30,5 @@ def cadastro(request):
 	
 def aluno(request):
 	return render(request, "aluno.html")
-	
+
+

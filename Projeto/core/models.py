@@ -1,22 +1,29 @@
 # Create your models here.
-'''
-class Curso(models.Model):
 
-    nome = models.CharField("Nome",max_length=50)
-    carga_horaria = models.IntegerField("Carga Horária")
-    professor = models.CharField("Coordenador",max_length=50)
-    tipo = models.CharField("Tipo",max_length=50)
 
-    descricao = models.TextField("Descrição",blank=True)
-    ativo = models.BooleanField("Ativo?",default=True)
-
-    def __str__(self):
-        return self.nome
-'''
 
 from __future__ import unicode_literals
 
 from django.db import models
+
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+
+class UsuarioManager(BaseUserManager):
+    
+    def _criar_usuario(self, ra, password, **campos):
+        if not ra: 
+            raise ValueError("RA deve ser declarado!")
+        user = self.model(ra=ra, **campos)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_user(self, ra, password=None, **campos):
+        return self._criar_usuario(ra, password, **campos)
+
+    def create_superuser(self, ra, password=None, **campos):
+        campos.setdefault('perfil', 'C')
+        return self._criar_usuario(ra, password, **campos)
 
 
 class Aluno(models.Model):
@@ -322,3 +329,74 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
+
+def AplicaTeste(Aluno):
+    
+    if Resposta.objects.filter(raaluno=Aluno.ra):
+        return " ja fez o teste"
+    else:
+        return "renderizar o teste"
+
+    
+def Aluno_Enviaram():
+
+    ListaDosQueFizeram = []
+    listaNome=[]
+    AlunosResponderam = Resposta.objects.all()
+    TodosAlunos = Aluno.objects.all()
+    for aluno in TodosAlunos:
+        for AlunoRespondeu in AlunosResponderam:
+            if aluno.id == AlunoRespondeu.raaluno:
+                ListaDosQueFizeram.append(aluno.nome)
+    return ListaDosQueFizeram
+
+def Alunos_N_Enviaram():
+    ListaDosQueFizeram = []
+    listaNome=[]
+    AlunosResponderam = Resposta.objects.all()
+    TodosAlunos = Aluno.objects.all()
+    for AlunoRespondeu in AlunosResponderam:
+        ListaDosQueFizeram.append(AlunoRespondeu.raaluno)
+    TodosAlunos = Aluno.objects.exclude(id__in=ListaDosQueFizeram)
+    return TodosAlunos
+
+def VerificaPrazo(dataatual,Questao):
+    ValidaQuestao = Questao.objects.all()
+    if ValidaQuestao.data_limite_entrega > dataatual:
+        return print ( "você não pode entregar a questão pois passou da data limite")
+    else:
+        return "Grud resposta"
+
+def ValidaMatricula(Aluno,IdDisciplina):
+    Matriculas = Matricula.objects.all()
+    Disciplinas = Disciplinaofertada.objects.all()
+    turmas = turma.objects.all()
+    for matricula in Matriculas:
+        for turma in turmas:
+            if matricula.idTurma == turma.idTurma:
+                if turma.id_disciplinaofertada == IdDisciplina:
+                    print("Já possui matricula nesse disciplina")
+                    break
+                else:
+                    print ("pode metricular")
+
+def CrudMatricula():
+    u = Aluno(ra = "12312",nome = "dsydg",email = "uhsdah",celular = "12323",idcurso = 1)
+    u.save()
+    return ("funfo")
+
+
+class Usuario(AbstractBaseUser):
+
+    ra = models.IntegerField("RA",unique=True)
+    password = models.CharField("Senha", max_length=200)
+
+    nome = models.CharField("Nome", max_length=100)
+    email = models.EmailField("E-Mail", max_length=50)
+
+    perfil = models.CharField("Perfil", max_length=1)
+    ativo = models.BooleanField("Ativo", default=True)
+
+    USERNAME_FIELD = 'ra'
+    REQUIRED_FIELDS = ['nome','email']
+
