@@ -1,0 +1,19 @@
+#SETTINGS EMBAIXO DE ALLOWED_HOSTS
+EMAIL_HOST = 'smtp.gamil.com'
+EMAIL_HOST_USER = 'youremail@gmail.com'
+EMAIL_HOST_PASSWORD = 'password'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
+
+
+
+#VIEWS
+from django.core.mail import send_mail
+
+send_mail(
+    'Subject here',
+    'Here is the message.',
+    'from@example.com',
+    ['to@example.com'],
+    fail_silently=False,
+)
