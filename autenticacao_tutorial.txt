@@ -1,1 +1,2 @@
 1) coloca no settings o que o professor passou em aula
+2) cria a classe usuario e herda ela em aluno e professor
