@@ -5,9 +5,9 @@ SELECT
 	A.Email AS Email,
 	A.RA AS RA
 FROM
-	Aluno AS A
+	Faculdade.Aluno AS A
 	JOIN
-	Curso AS C
+	Faculdade.Curso AS C
 	ON(A.IdCurso = C.Id)
 WHERE
 	C.Sigla = 'SI'
@@ -21,12 +21,12 @@ SELECT
 	GC.Semestre
 	
 FROM
-	Disciplina AS D
+	Faculdade.Disciplina AS D
 	JOIN
-	GradeCurricular AS GC
+	Faculdade.GradeCurricular AS GC
 	ON(D.Id = GC.Id)
 	JOIN
-	Curso AS C
+	Faculdade.Curso AS C
 	ON(C.Id = GC.IdCurso)
 WHERE
 	C.Sigla = 'SI' AND GC.Semestre = '1'
@@ -37,18 +37,18 @@ SELECT
 	D.Nome,
 	Count(A.RA) AS 'Total de Turmas'
 FROM
-	Aluno AS A
+	Faculdade.Aluno AS A
 	JOIN
-	Matricula AS M
+	Faculdade.Matricula AS M
 	ON (A.Id =  M.IdAluno)
 	JOIN
-	Turma AS T
+	Faculdade.Turma AS T
 	ON(T.Id = M.IdTurma)
 	JOIN
-	DisciplinaOfertada AS DO
+	Faculdade.DisciplinaOfertada AS DO
 	ON(DO.Id = T.Id_DisciplinaOfertada)
 	JOIN
-	Disciplina AS D
+	Faculdade.Disciplina AS D
 	ON(DO.IdDisciplina = D.Id)
 
 WHERE
@@ -65,15 +65,15 @@ SELECT
 	COUNT(A.RA) AS 'Total de Alunos Matriculados'
 
 FROM
-	Matricula AS M
+	Faculdade.Matricula AS M
 	LEFT JOIN 
-	ALUNO AS A
+	Faculdade.Aluno AS A
 	ON(M.IdAluno = A.Id)
 	LEFT JOIN 
-	TURMA AS T
+	Faculdade.Turma AS T
 	ON(M.IdTurma = T.Id)
 	LEFT JOIN
-	DisciplinaOfertada AS DO
+	Faculdade.DisciplinaOfertada AS DO
 	ON(T.Id_DisciplinaOfertada = DO.Id)
 
 WHERE 
@@ -87,12 +87,12 @@ SELECT
 	A.RA AS 'RA',
 	R.Data_de_Envio AS 'Data de Envio'
 FROM
-	Questao AS Q
+	Faculdade.Questao AS Q
 	JOIN
-	Resposta AS R
+	Faculdade.Resposta AS R
 	ON (R.IdQuestao = Q.Id)
 	JOIN 
-	Aluno AS A
+	Faculdade.Aluno AS A
 	ON (A.Id = R.IdAluno)
 		
 /*Exercicio 7*/
@@ -100,27 +100,27 @@ DECLARE @X INT
 SET @X = (SELECT 
 				COUNT(P.Id)
 			FROM
-				Professor AS P);
+				Faculdade.Professor AS P);
 SELECT 
 	@X AS 'Total de Professores Cadastrados',
 	COUNT(P.Id) AS 'Total de Professores que dão aula neste Semestre'
 
 FROM
-	Professor AS P
+	Faculdade.Professor AS P
 WHERE
 	P.Id IN (
 			SELECT
 				P.Id
 			FROM
-				Professor AS P
+				Faculdade.Professor AS P
 				JOIN
-				Turma AS T
+				Faculdade.Turma AS T
 				ON(P.Id = T.IdProfessor)
 				JOIN
-				DisciplinaOfertada AS DO
+				Faculdade.DisciplinaOfertada AS DO
 				ON(DO.Id = T.Id_DisciplinaOfertada)
 				JOIN
-				Disciplina AS D
+				Faculdade.Disciplina AS D
 				ON(DO.IdDisciplina = D.Id)
 			WHERE
 				Ano = CONVERT(VARCHAR(4), GETDATE(), 120)
@@ -133,9 +133,9 @@ SELECT
 	C.Nome,
 	COUNT(A.Id) AS Alunos
 FROM
-	Aluno AS A
+	Faculdade.Aluno AS A
 	LEFT JOIN
-	Curso AS C
+	Faculdade.Curso AS C
 	ON(A.IdCurso = C.Id)
 GROUP BY
 	C.Nome

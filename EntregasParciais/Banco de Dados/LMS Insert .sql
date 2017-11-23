@@ -15,7 +15,7 @@ go
 
 /* select * from Curso; */
 
-insert into curso (Sigla,nome)
+insert into Faculdade.curso (Sigla,nome)
 
 VALUES 
 
@@ -35,7 +35,7 @@ VALUES
 
 /* select * from aluno; */
 
-insert into Aluno(RA,Nome,Email,Celular,IdCurso) 
+insert into Faculdade.Aluno(RA,Nome,Email,Celular,IdCurso) 
 
 VALUES
 
@@ -59,7 +59,7 @@ VALUES
 
 /* select * from disciplina; */
 
-insert into Disciplina(Nome,Teoria,Pratica,CargaHoraria,Ementa,Competencias,Habilidades,Conteudo,Bibliografia_basica,Bibliografia_complementar) 
+insert into Faculdade.Disciplina(Nome,Teoria,Pratica,CargaHoraria,Ementa,Competencias,Habilidades,Conteudo,Bibliografia_basica,Bibliografia_complementar) 
 
 VALUES 
 
@@ -80,7 +80,7 @@ VALUES
 
 /* select * from professor */ 
 
-insert into professor (RA,Nome,Email,Celular,Apelido)
+insert into Faculdade.professor (RA,Nome,Email,Celular,Apelido)
 
 VALUES
 
@@ -104,7 +104,7 @@ VALUES
 
 /* SELECT * FROM GradeCurricular */
 
-insert into GradeCurricular (IdCurso,Ano,Semestre)
+insert into Faculdade.GradeCurricular (IdCurso,Ano,Semestre)
 
 Values
 
@@ -123,7 +123,7 @@ Values
 
 /* select * from Periodo */
 
-insert into Periodo (IdGradeCurricular,Numero)
+insert into Faculdade.Periodo (IdGradeCurricular,Numero)
 
 Values
 
@@ -141,7 +141,7 @@ Values
 
 /* Select * from DisciplinaOfertada */
 
-insert into DisciplinaOfertada (IdDisciplina,Ano,Semestre)
+insert into Faculdade.DisciplinaOfertada (IdDisciplina,Ano,Semestre)
 
 Values
 
@@ -159,7 +159,7 @@ Values
 
 /* select * from  Turma  */ 
 
-insert into Turma (identificador,Turno,Id_DisciplinaOfertada,IdProfessor)
+insert into Faculdade.Turma (identificador,Turno,Id_DisciplinaOfertada,IdProfessor)
 
 values
 
@@ -178,7 +178,7 @@ values
 
 /* select * from questao */
 
-insert into Questao (IdTurma,Numero,data_limite_entrega,Descricao,data)
+insert into Faculdade.Questao (IdTurma,Numero,data_limite_entrega,Descricao,data)
 
 values
 
@@ -192,7 +192,7 @@ values
 
 /* SELECT * FROM resposta */
 
-insert into Resposta (IdQuestao,IdAluno,Data_Avaliacao,Nota,Avaliacao,Descricao,Data_de_Envio)
+insert into Faculdade.Resposta (IdQuestao,IdAluno,Data_Avaliacao,Nota,Avaliacao,Descricao,Data_de_Envio)
 
 values
 
@@ -206,7 +206,7 @@ values
 
 /* SELECT * FROM PeriodoDisciplina */
 
-insert into PeriodoDisciplina (IdPeriodo,IdDisciplina)
+insert into Faculdade.PeriodoDisciplina (IdPeriodo,IdDisciplina)
 
 values
 
@@ -224,7 +224,7 @@ values
 
 /* SELECT * FROM Matricula */
 
-insert into Matricula (IdAluno, IdTurma)
+insert into Faculdade.Matricula (IdAluno, IdTurma)
 
 values
 
@@ -248,7 +248,7 @@ values
 
 /* SELECT * FROM ArquivoResposta */
 
-Insert into ArquivoResposta (IdResposta, Arquivo ) 
+Insert into Faculdade.ArquivoResposta (IdResposta, Arquivo ) 
 
 values
 
@@ -263,7 +263,7 @@ values
 
 /* SELECT * FROM CursoTurma */
 
-insert into CursoTurma (IdCurso, IdTurma)
+insert into Faculdade.CursoTurma (IdCurso, IdTurma)
 
 Values
 
@@ -282,7 +282,7 @@ Values
 
 /* SELECT * FROM ArquivoQuestao */
 
-insert into ArquivoQuestao (IdQuestao, Arquivo)
+insert into Faculdade.ArquivoQuestao (IdQuestao, Arquivo)
 
 VALUES
 
