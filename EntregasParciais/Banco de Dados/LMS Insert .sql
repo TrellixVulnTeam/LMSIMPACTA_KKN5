@@ -38,7 +38,7 @@ VALUES
 insert into Faculdade.Aluno(RA,Nome,Email,Celular,IdCurso) 
 
 VALUES
-
+('174455','Danilo loves','dasdsdsa@live.com','5445454545','1'),
 ('170555','Danilo loves','dasdsdsa@live.com','5445454545','1'),
 ('165654','João Henrique','jh@google.com','1229655656','5'),
 ('454545','Lucas als','Lucasal@live.com','8898564454','10'),
@@ -108,7 +108,7 @@ insert into Faculdade.GradeCurricular (IdCurso,Ano,Semestre)
 
 Values
 
-('1','2017','2'),
+('1','2017','1'),
 ('2','2015','6'),
 ('3','2017','1'),
 ('4','2017','1'),
@@ -270,10 +270,10 @@ Values
 ('1','1'),
 ('2','2'),
 ('3','3'),
-('4','4'),
-('3','3'),
-('4','4'),
-('3','3'),
+('4','2'),
+('3','1'),
+('4','3'),
+('3','4'),
 ('4','4'),
 ('5','3'),
 ('6','4')

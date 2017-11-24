@@ -1,5 +1,9 @@
+/* Use master */
+
 Use LMSIMPACTA
+
 /*Exercicio 1*/
+
 SELECT 
 	A.Nome AS Nome,
 	A.Email AS Email,
@@ -14,6 +18,7 @@ WHERE
 
 
 /*Exercicio 2*/
+
 SELECT 
 	C.Sigla,
 	D.Nome,

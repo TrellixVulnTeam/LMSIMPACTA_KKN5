@@ -29,27 +29,28 @@ CREATE TABLE Faculdade.curso (
 	Sigla VARCHAR(5) NOT NULL,
 	Nome VARCHAR(50) NOT NULL,
 	CONSTRAINT PkIdCurso PRIMARY KEY (Id),
-	CONSTRAINT UQSiglaNomeCurso UNIQUE (Sigla, Nome)
+	CONSTRAINT UQSiglaCurso UNIQUE (Sigla),
+	CONSTRAINT UQNomeCurso UNIQUE (Nome)
 );
 
 
 CREATE TABLE Faculdade.Aluno(
 
 	Id INT identity,
+	IdCurso smallint,
 	RA INT NOT NULL,
 	Nome VARCHAR(120) NOT NULL,
 	Email VARCHAR(80) NOT NULL,
 	Celular CHAR(11),
-	IdCurso smallint,
 	CONSTRAINT PkIdAluno PRIMARY KEY (Id),
-	CONSTRAINT UQRaAluno UNIQUE (RA, IdCurso),
-	CONSTRAINT FKIdCurso FOREIGN KEY (IdCurso) REFERENCES Faculdade.CURSO (Id)
+	CONSTRAINT FKIdCurso FOREIGN KEY (IdCurso) REFERENCES Faculdade.CURSO (Id),
+	CONSTRAINT UQRaAluno UNIQUE (RA)
 
 );
 
 
 CREATE TABLE Faculdade.Disciplina(
-
+	
 	Id int IDENTITY,
 	Nome VARCHAR(240) NOT NULL,
 	Teoria DECIMAL (3) NOT NULL,
@@ -119,7 +120,7 @@ CREATE TABLE Faculdade.Turma(
 	CONSTRAINT PkIdTurma PRIMARY KEY (Id),
 	CONSTRAINT FkId_DisciplinaOfertada FOREIGN KEY (Id_DisciplinaOfertada) REFERENCES Faculdade.DisciplinaOfertada(Id),
 	CONSTRAINT FkIdProfessor FOREIGN KEY (IdProfessor) REFERENCES Faculdade.Professor(Id),
-	CONSTRAINT UqTurma UNIQUE (identificador,id_disciplinaofertada, IdProfessor )
+	CONSTRAINT UqTurma UNIQUE (identificador, id_disciplinaofertada)
 );
 
 
@@ -147,7 +148,8 @@ CREATE TABLE Faculdade.Resposta(
 	Data_de_Envio DATE,
 	CONSTRAINT PkIdRespoosta PRIMARY KEY (Id),
 	CONSTRAINT FkIdNumeroQuestao FOREIGN KEY (IdQuestao) REFERENCES Faculdade.Questao(ID),
-	CONSTRAINT FkIdAlunoQuestao FOREIGN KEY (IdAluno) REFERENCES Faculdade.Questao(ID)
+	CONSTRAINT FkIdAlunoQuestao FOREIGN KEY (IdAluno) REFERENCES Faculdade.Questao(ID),
+	CONSTRAINT UqResposta UNIQUE (Idquestao, IdAluno)
 	
 );
 
@@ -158,7 +160,8 @@ CREATE TABLE Faculdade.PeriodoDisciplina(
 	IdDisciplina int NOT NULL,
 	CONSTRAINT PkIdPeriodoDisciplina PRIMARY KEY (Id),
 	CONSTRAINT FkIdPeriodo FOREIGN KEY (IdPeriodo) REFERENCES Faculdade.Periodo(Id),
-	CONSTRAINT FkIdDisciplinaPerio FOREIGN KEY (IdDisciplina) REFERENCES Faculdade.Disciplina(id)
+	CONSTRAINT FkIdDisciplinaPerio FOREIGN KEY (IdDisciplina) REFERENCES Faculdade.Disciplina(id),
+	CONSTRAINT UQPeriodoDisci UNIQUE (IdPeriodo, IdDisciplina)
 );
 
 CREATE TABLE Faculdade.Matricula(
@@ -167,7 +170,9 @@ CREATE TABLE Faculdade.Matricula(
 	IdTurma INT NOT NULL,
 	CONSTRAINT PkIdMatricula PRIMARY KEY (Id),
 	CONSTRAINT FkIdAluno FOREIGN KEY (IdAluno) REFERENCES Faculdade.Aluno(Id),
-	CONSTRAINT FkIdTurmaMa FOREIGN KEY (IdTurma) REFERENCES Faculdade.Turma(Id)
+	CONSTRAINT FkIdTurmaMa FOREIGN KEY (IdTurma) REFERENCES Faculdade.Turma(Id),
+	CONSTRAINT UQMatricula UNIQUE (IdAluno, IdTurma)
+
 );
 
 
@@ -186,7 +191,8 @@ CREATE TABLE Faculdade.CursoTurma(
 	IdTurma INT NOT NULL,
 	CONSTRAINT PkIdCursoTurma PRIMARY KEY (Id),
 	CONSTRAINT FkIdCursoTurma FOREIGN KEY (IdCurso) REFERENCES Faculdade.Curso(Id),
-	CONSTRAINT FkIdTurmaCursoTurma FOREIGN KEY (IdTurma) REFERENCES Faculdade.Turma(Id)
+	CONSTRAINT FkIdTurmaCursoTurma FOREIGN KEY (IdTurma) REFERENCES Faculdade.Turma(Id),
+	Constraint UQTurmaCurso UNIQUE (IdCurso, IdTurma)
 );
 
 
