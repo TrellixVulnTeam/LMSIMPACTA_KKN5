@@ -1,6 +1,6 @@
 /*Vitor Crepaldi Carlessi - 1700266  */
 /* Matheus Pereira - 1700688 */
-/* Lucas Araújo - 1700424 */
+/* Lucas AraÃºjo - 1700424 */
 /* Lucas Alves Siqueira - 1700262 */
 /* Danilo Lopes do Nascimento - 1700255 */
 /* Bruno Lima Dos santos - 1700713  */
@@ -19,15 +19,15 @@ insert into Faculdade.curso (Sigla,nome)
 
 VALUES 
 
-('SI', 'Sistemas de informação'),
+('SI', 'Sistemas de informaÃ§Ã£o'),
 ('BD', 'Bando de dados'),
-('CC', 'Ciencia da computação'),
-('ADM', 'Administração'),
-('ADS', 'Análise e desenvolvimento de sistemas'),
-('EF', 'Educação Fisica'),
+('CC', 'Ciencia da computaÃ§Ã£o'),
+('ADM', 'AdministraÃ§Ã£o'),
+('ADS', 'AnÃ¡lise e desenvolvimento de sistemas'),
+('EF', 'EducaÃ§Ã£o Fisica'),
 ('JG', 'Jogos digitais'),
-('GTI', 'Gestão de TI'),
-('EC', 'Engenharia de computação'),
+('GTI', 'GestÃ£o de TI'),
+('EC', 'Engenharia de computaÃ§Ã£o'),
 ('Sec', 'Secretariado')
 
 
@@ -35,12 +35,12 @@ VALUES
 
 /* select * from aluno; */
 
-insert into Faculdade.Aluno(RA,Nome,Email,Celular,IdCurso) 
+insert into Faculdade.Aluno(RA,Nome,Email,Celular,IdCurso)  
 
 VALUES
 ('174455','Danilo loves','dasdsdsa@live.com','5445454545','1'),
 ('170555','Danilo loves','dasdsdsa@live.com','5445454545','1'),
-('165654','João Henrique','jh@google.com','1229655656','5'),
+('165654','JoÃ£o Henrique','jh@google.com','1229655656','5'),
 ('454545','Lucas als','Lucasal@live.com','8898564454','10'),
 ('484545','Douglas dias','dougras@live.com','8986588888','6'),
 ('980555','zidane','zidane@live.com','1234566668','6'),
@@ -63,16 +63,16 @@ insert into Faculdade.Disciplina(Nome,Teoria,Pratica,CargaHoraria,Ementa,Compete
 
 VALUES 
 
-('Matematica','10','20','30','No curso de matematica aprenderemos a contas','fazer contas','contar números', 'Fazer continhas é otimo','',''),
-('Portugues','5','10','15','nesse curso você irá aprender a escrever','letras','Escrever textões', 'Nós amamos escrever','',''),
-('Banco de dados','20','30','50','Nesse curso iremos aprender sobre as formas de armazenamento para nossas aplicações','Fazer ótimos banco de dados','banco da dados normalizado', 'Fazer banco com otimas qualidaddes','',''),
-('Linguagem de programação','5','10','15','Nesse curso você irá aprender ser um excelente programador, claro, se estudar','Programação, codigos, classes, herança','Faça mais que uma calculadora','Faça calculos','',''),
-('Engenharia de software','5','10','15','Nesse curso você ira aprender a modelar da melhor maneira seus projetos ', 'Análisar e classificar modelos','Maneiras concretas para desenvolver seu software', 'Seja o melhor projetista','',''),
-('TecWeb','10','20','30','Nesse curso iremos aprender desenvolver Web','vem com nois do django','nos queremos programar web com excelencia', 'web é otimo','',''),
-('LP2','10','20','30','Nesse curso iremos aprender desenvolver Web','vem com nois do django','nos queremos programar web com excelencia', 'web é otimo','',''),
+('Matematica','10','20','30','No curso de matematica aprenderemos a contas','fazer contas','contar nÃºmeros', 'Fazer continhas Ã© otimo','',''),
+('Portugues','5','10','15','nesse curso vocÃª irÃ¡ aprender a escrever','letras','Escrever textÃµes', 'NÃ³s amamos escrever','',''),
+('Banco de dados','20','30','50','Nesse curso iremos aprender sobre as formas de armazenamento para nossas aplicaÃ§Ãµes','Fazer Ã³timos banco de dados','banco da dados normalizado', 'Fazer banco com otimas qualidaddes','',''),
+('Linguagem de programaÃ§Ã£o','5','10','15','Nesse curso vocÃª irÃ¡ aprender ser um excelente programador, claro, se estudar','ProgramaÃ§Ã£o, codigos, classes, heranÃ§a','FaÃ§a mais que uma calculadora','FaÃ§a calculos','',''),
+('Engenharia de software','5','10','15','Nesse curso vocÃª ira aprender a modelar da melhor maneira seus projetos ', 'AnÃ¡lisar e classificar modelos','Maneiras concretas para desenvolver seu software', 'Seja o melhor projetista','',''),
+('TecWeb','10','20','30','Nesse curso iremos aprender desenvolver Web','vem com nois do django','nos queremos programar web com excelencia', 'web Ã© otimo','',''),
+('LP2','10','20','30','Nesse curso iremos aprender desenvolver Web','vem com nois do django','nos queremos programar web com excelencia', 'web Ã© otimo','',''),
 ('Ciencias contabil','10','20','30','Nesse curso iremos aprender desenvolver varias contas loucas','vem com nois das conta','nos queremos  excelencia', 'use sua calculadora cientifica','',''),
-('Devops','10','20','30','Nesse curso iremos aprender utilizar diversars ferramentas','vem com nois no GIT, Haruki','nos queremos programar web com excelencia', 'web é otimo','',''),
-('Calculo','10','20','30','Nesse curso iremos aprender contassss','vem com nois do django','nos queremos programar web com excelencia', 'web é otimo','','')
+('Devops','10','20','30','Nesse curso iremos aprender utilizar diversars ferramentas','vem com nois no GIT, Haruki','nos queremos programar web com excelencia', 'web Ã© otimo','',''),
+('Calculo','10','20','30','Nesse curso iremos aprender contassss','vem com nois do django','nos queremos programar web com excelencia', 'web Ã© otimo','','')
 
 
 
@@ -89,7 +89,7 @@ VALUES
 ('12364','Otavio Lima','LimaO@live.com','75457655',' Taviao'),
 ('12357','Douglas dias','ratoveio@live.com','9765466465','Rato veio'),
 ('65554','Felipe Lima','Dime@live.com','565435344',' Dime '),
-('56565','João Henrique','Jao@live.com','8764535678',' Jão'),
+('56565','JoÃ£o Henrique','Jao@live.com','8764535678',' JÃ£o'),
 ('78767','Henrique Oliveira','Henrique@gmail.com','2345675465','Rick '),
 ('97865','Bruno Lost','Lost@hotmail.com','655544465','lost'),
 ('90909','Henrique Pereira','Pereira@live.com','56789765435','HP'),
@@ -184,10 +184,10 @@ values
 
 ('1','1','10/03/2018','Qual a raiz quadrada de 64?','03/03/2018'),
 ('1','2','17/10/2017','Qual a raiz quadrada de 121','10/10/2017'),
-('2','3','10/10/2017','O que é um poema?','01/10/2017'),
-('2','4','20/08/2017','o que é python?',''),
-('3','5','30/07/2017','o que é uml?', '20/07/2017'),
-('4','6','03/03/2017','cite os tipos instreuções dml','20/02/2017')
+('2','3','10/10/2017','O que Ã© um poema?','01/10/2017'),
+('2','4','20/08/2017','o que Ã© python?',''),
+('3','5','30/07/2017','o que Ã© uml?', '20/07/2017'),
+('4','6','03/03/2017','cite os tipos instreuÃ§Ãµes dml','20/02/2017')
 
 
 /* SELECT * FROM resposta */
@@ -196,11 +196,11 @@ insert into Faculdade.Resposta (IdQuestao,IdAluno,Data_Avaliacao,Nota,Avaliacao,
 
 values
 
-('1','1','10/03/2018','10','Muito bom o seu desenvolvimento','A raiz quadrada de 64 é 8.','09/03/2018'),
-('2','2','20/10/2017','0','Por favor estude mais','A raiz quadrada de 121 é 14.','16/10/2017'),
-('3','3','15/10/2017','7','Boa explicação','composição em verso','09/10/2017'),
-('4','4','21/08/2017','0','Não houve entrega','',''),
-('5','5','02/08/2017','8','Boa resposta','UML é um acrônimo para a expressão Unified Modeling Language. Pela definição de seu nome, vemos que a UML é uma linguagem que define uma série de artefatos que nos ajuda na tarefa de modelar e documentar os sistemas orientados a objetos que desenvolvemos.','30/07/2017'),
+('1','1','10/03/2018','10','Muito bom o seu desenvolvimento','A raiz quadrada de 64 Ã© 8.','09/03/2018'),
+('2','2','20/10/2017','0','Por favor estude mais','A raiz quadrada de 121 Ã© 14.','16/10/2017'),
+('3','3','15/10/2017','7','Boa explicaÃ§Ã£o','composiÃ§Ã£o em verso','09/10/2017'),
+('4','4','21/08/2017','0','NÃ£o houve entrega','',''),
+('5','5','02/08/2017','8','Boa resposta','UML Ã© um acrÃ´nimo para a expressÃ£o Unified Modeling Language. Pela definiÃ§Ã£o de seu nome, vemos que a UML Ã© uma linguagem que define uma sÃ©rie de artefatos que nos ajuda na tarefa de modelar e documentar os sistemas orientados a objetos que desenvolvemos.','30/07/2017'),
 ('6','6','05/03/2017','10','Excelente','BULK INSERT (Transact-SQL), SELECT (Transact-SQL), DELETE (Transact-SQL),UPDATE (Transact-SQL), INSERT (Transact-SQL), UPDATETEXT (Transact-SQL), MERGE (Transact-SQL), WRITETEXT (Transact-SQL), READTEXT (Transact-SQL)','01/03/2017')
 
 
@@ -252,11 +252,11 @@ Insert into Faculdade.ArquivoResposta (IdResposta, Arquivo )
 
 values
 
-('1','A raiz quadrada de 64 é 8'),
-('2','A raiz quadrada de 121 é 14'),
-('3','composição em verso'),
+('1','A raiz quadrada de 64 Ã© 8'),
+('2','A raiz quadrada de 121 Ã© 14'),
+('3','composiÃ§Ã£o em verso'),
 ('4',''),
-('5','UML é um acrônimo para a expressão Unified Modeling Language. Pela definição de seu nome, vemos que a UML é uma linguagem que define uma série de artefatos que nos ajuda na tarefa de modelar e documentar os sistemas orientados a objetos que desenvolvemos'),
+('5','UML Ã© um acrÃ´nimo para a expressÃ£o Unified Modeling Language. Pela definiÃ§Ã£o de seu nome, vemos que a UML Ã© uma linguagem que define uma sÃ©rie de artefatos que nos ajuda na tarefa de modelar e documentar os sistemas orientados a objetos que desenvolvemos'),
 ('6','BULK INSERT (Transact-SQL), SELECT (Transact-SQL), DELETE (Transact-SQL),UPDATE (Transact-SQL), INSERT (Transact-SQL), UPDATETEXT (Transact-SQL), MERGE (Transact-SQL), WRITETEXT (Transact-SQL), READTEXT (Transact-SQL')
 
 
@@ -288,7 +288,7 @@ VALUES
 
 ('1','Qual a raiz quadrada de 64?'),
 ('2','Qual a raiz quadrada de 121'),
-('3','O que é um poema?'),
-('4','o que é python?'),
-('5','o que é uml'),
-('6','cite os tipos instreuções dml')
+('3','O que Ã© um poema?'),
+('4','o que Ã© python?'),
+('5','o que Ã© uml'),
+('6','cite os tipos instreuÃ§Ãµes dml')
