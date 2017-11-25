@@ -1,14 +1,31 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
-from core.models import *
+from core.models import Aluno
 
+from core.modelos import *
+'''from core.models import Curso
 
-
-def index(request):
-    novo = Alunos_N_Enviaram()
+def banana(requisicao):
     contexto = {
-        "cursos": Aluno.objects.all(),
-        "faculdade":novo,
+        "cursos": Curso.objects.all(),
+        "faculdade":"Faculdade Impacta de Tecnologia",
+        "pagina":"Homepage",
+        "usuario":"Yuri",
+        "logado":True,
+        "idade":-18
+    }
+    return render(requisicao,"index.html",contexto)
+
+...def contato(request):
+    if request.POST:
+        print(request.POST['mensagem'])
+    return render(request,"contato.html")
+'''
+def index(request):
+    'novo = Alunos_N_Enviaram()'
+    contexto = {
+        "cursos": 'Aluno.objects.all()',
+        "faculdade":'novo',
         "pagina":"Homepage",
         "usuario":"Yuri",
         "logado":True,
@@ -31,4 +48,10 @@ def cadastro(request):
 def aluno(request):
 	return render(request, "aluno.html")
 
-
+"""send_mail(
+    'Subject here',
+    'Here is the message.',
+    'from@example.com',
+    ['to@example.com'],
+    fail_silently=False,
+)"""

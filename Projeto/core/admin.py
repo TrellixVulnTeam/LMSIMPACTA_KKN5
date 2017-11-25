@@ -1,6 +1,7 @@
 from django.contrib import admin
-
+from django import forms
 from core.models import *
+
 
 # Register your models here.
 admin.site.register(Aluno)
@@ -17,3 +18,4 @@ admin.site.register(Professor)
 admin.site.register(Questao)
 admin.site.register(Resposta)
 admin.site.register(Turma)
+

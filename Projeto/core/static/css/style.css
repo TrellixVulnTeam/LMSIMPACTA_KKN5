@@ -192,14 +192,11 @@ p{
 
 .FrmCadastro{
 	display: grid;
-  	grid-template-columns: 17% 66% 17%;
+  	grid-template-columns: 25% 50% 25%;
 }
 .FrmCadastro h1, .FrmCadastro form{
 	grid-column-start: 2;
 
-}
-#datanasc{
-	width: 180px;
 }
 .titulo_form_contato{
 	grid-column: 1/3
@@ -363,13 +360,6 @@ margin-top:1px;
 .conteudo{
 	margin-top:99px;
 }
-#sexo_cadastro{
-	display: flex;
-	flex-direction: row;
-}
-#masculino, #feminino{
-	width: 80px;
-}
 .titulo_form_contato{
 	font-size: 35px;
 	padding-bottom: 20px; 
@@ -416,10 +406,6 @@ margin-top:1px;
 	padding-right: 30px;
 	box-sizing: border-box;
 	margin-bottom:70px;
-
-}
-.FrmCadastro h1{
-	text-align: center;
 
 }
 .coluna4 {
@@ -507,7 +493,6 @@ section {
 }
 
 .titulo_contato{
-	text-align: center;
 	width:100%;
 	height:35px;
 }
@@ -538,7 +523,7 @@ section {
 	
 }	
 .titulo {
-	font-size: 33px;
+	font-size: 20px;
 	font-weight: bold;
 	text-transform: uppercase;
 	text-align: center;
@@ -561,6 +546,17 @@ section {
 @media screen and (max-width: 480px) {
 
 
+
+.titulo {
+	font-size: 20px;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	font-color:#424242;
+	margin-top: 25px;
+	margin-bottom: 15px;
+	letter-spacing: 2px;
+}
 
 .caixadetexto {
 	width: 400px;
@@ -688,6 +684,7 @@ a:hover {
 
 .FrmCadastro{
 	width:100%;
+	float:left;
 
 }
 /*designer do input , para atingir um campo em especifico, basta colocar [type="tipo"] na frente da tag input*/
