@@ -1,6 +1,6 @@
 /*Vitor Crepaldi Carlessi - 1700266  */
 /* Matheus Pereira - 1700688 */
-/* Lucas Araújo - 1700424 */
+/* Lucas AraÃºjo - 1700424 */
 /* Lucas Alves Siqueira - 1700262 */
 /* Danilo Lopes do Nascimento - 1700255 */
 /* Bruno Lima Dos santos - 1700713  */
@@ -20,7 +20,7 @@ CREATE SCHEMA Faculdade;
 GO
 
 
-/*INICIO DA CRIAÇÃO DAS TABELAS*/
+/*INICIO DA CRIAÃ‡ÃƒO DAS TABELAS*/
 
 
 CREATE TABLE Faculdade.curso (
@@ -204,5 +204,5 @@ CREATE TABLE Faculdade.ArquivoQuestao(
 	CONSTRAINT FkIdQuestaoArquivoQuestao FOREIGN KEY (IdQuestao) REFERENCES Faculdade.Questao(Id),
 	CONSTRAINT UqArquivoQuestao UNIQUE (Arquivo, IdQuestao)
 );
-
+ 
 
