@@ -45,10 +45,6 @@ def esquecisenha(request):
 @login_required(login_url="/login")
 @user_passes_test(checa_aluno)	
 def contato(request):
-    if 
-    var ={
-        "x":"container_professor"
-    }
 	return render(request, 'contato.html')
 	
 
