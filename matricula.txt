@@ -1,1 +1,27 @@
 
+# NO MODELS.PY
+
+class Professor(Usuario):
+    celular = models.CharField(db_column='Celular', max_length=11, blank=True, null=True)  # Field name made lowercase.
+    apelido = models.CharField(db_column='Apelido', unique=True, max_length=30, blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Professor'
+   
+# NO VIEW.PY
+        
+        def matricula(request):
+    if request.POST:
+        form = AlunoForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = AlunoForm()
+
+    context = {
+        'form' = form
+    }
+
+    return render(request, 'matricula.html', context)
+       
