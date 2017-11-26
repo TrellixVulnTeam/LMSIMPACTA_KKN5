@@ -7,8 +7,10 @@
 		<link rel="stylesheet" href="../static/css/StyleAluno.css">
 		<link href="../static/css/fontes/titillium-web.css" rel="stylesheet" />
 		<link rel="shortcut icon" href="../static/img/logo_title.png">
-		<script type="text/javascript" src="../js/script.js"> </script>
+		<script type="text/javascript" src="../static/js/script.js"> </script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script type="text/javascript" src="../static/js/Script_Aluno.js"> </script>
+
    </head>
 <body>
 	<header class="header">
@@ -19,12 +21,13 @@
 				<img src="../static/img/logo.png" alt="Logo da Impacta">
 			</a>
 
-			<ul class="topo_do_reder">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="sobre.html">Sobre</a></li>
-				<li><a href="contato.html">Contato</a></li>
-			
-			</ul>			
+				<ul class="topo_do_reder">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="aluno.html">Aluno</a></li>
+					<li><a href="index.html #index_home">Sobre</a></li>
+					<li><a href="contato.html">Contato</a></li>
+				
+				</ul>			
 		</nav>
 		<nav class="log_right">
 			<ul class="log_cad_header">
@@ -48,43 +51,74 @@
 
 	
 	<main class="ContainerAluno">
+		<section class="central">
+
 		<!--=========MENU LATERAL===================-->
-		<section class="menu_left">
-			<ul>
-				<li><a href="#"> Atividades </a></li>
-				<li><a href="#"> Pendencias </a></li>
-				<li><a href="#"> Contate um Professor </a></li>
-			</ul>			
-		</section>
-	<!--==============CONTEUDO======================-->
+			<div class="div_btn_lateral">
+				<input type="checkbox" id="btnMenuLateral" onclick="ShowHide_apk();">
+				<label for="btnMenuLateral" class="iconebtn">&#9776;</label>
+				<label for="btnMenuLateral" class="txtbtn">Menu</label>
+			</div>
+			<div id="menu_left">
+				<nav>
+					<a href="#"> Atividades </a>
+					<a href="#"> Pendencias </a>
+					<a href="#"> Contate um Professor </a>
+				</nav>			
+			</div>
+		<!--==============CONTEUDO======================-->
 
-		<section class="ContainerContent">
+			<section class="ContainerContent">
 
-				<h1 class="titulo">Notícias</h1>	
+					<h1 class="titulo">Notícias</h1>	
+					<section class="noticias_divisoria">
+						<div class="blocos_Noticias">
+							<img class="img_noticias" src="../static/img/noticia1.jpg" alt="Alunos ganharam"/>
+							<h2 class="titulo_noticia">Alunos da Faculdade Impacta vencem a 5.ª edição do Hackathon da FIESP</h2>
+							<p>
+								Os nossos alunos Júlio César dos Santos e Wilder Roberto Ramos Pereira e o ex-aluno Jean Pierre Ferreira da Silva, que integraram a equipe Greenbox, venceram a categoria Mashups com o projeto de uma plataforma para educar e ajudar a criar um modo seguro e interativo de usar a tecnologia a favor da educação, trazendo para o mundo real elementos de jogos virtuais.
+								A edição, que teve duração de três dias, premiou cada integrante com um tablet, além do compromisso com a aceleração dos projetos pelo CAF. Os ganhadores poderão ainda participar da 9.ª edição do Concurso Acelera Startup da Fiesp.
+								
+							</p>
 
-				<div class="blocos_Noticias">
-					<img class="img_noticias" src="../static/img/noticia1.jpg" alt="Alunos ganharam"/>
-					<h2 class="titulo_noticia">Alunos da Faculdade Impacta vencem a 5.ª edição do Hackathon da FIESP</h2>
-					<p>
-						"Sou aluna da Faculdade Impacta, e estou muito satisfeita com metodologia de ensino que eles utilizam é excelente, aulas gravadas e professores de altos níveis além de uma infra-estrutura apropriada para atender todos os tipos de alunos. Parabéns !!"
-						
-					</p>
+						</div>
 
-				</div>
+						<div class="blocos_Noticias">
+							<img class="img_noticias" src="../static/img/imagem2.jpg" alt="Alunos ganharam"/>
+							<h2 class="titulo_noticia">Alunos da Faculdade Impacta vencem a 5.ª edição do Hackathon da FIESP</h2>
+							<p>
+								A ferramenta já está em utilização na Cruz Vermelha com aprovação total dos seus voluntários e colaboradores. Para os alunos Douglas Torres, um dos idealizadores da solução, o resultado foi fantástico: “Nos pudemos contribuir com a parte de gestão das informações, eles não tinham esse controle por departamento, tem sido um grande facilitador para eles”.
+								
+							</p>
 
-				<div class="blocos_Noticias">
-					<img class="img_noticias" src="../static/img/imagem2.jpg" alt="Alunos ganharam"/>
-					<h2 class="titulo_noticia">Alunos da Faculdade Impacta vencem a 5.ª edição do Hackathon da FIESP</h2>
-					<p>
-						"Sou aluna da Faculdade Impacta, e estou muito satisfeita com metodologia de ensino que eles utilizam é excelente, aulas gravadas e professores de altos níveis além de uma infra-estrutura apropriada para atender todos os tipos de alunos. Parabéns !!"
-						
-					</p>
+						</div>
+					</section>
 
-				</div>
+					<section class="noticias_divisoria">
+						<div class="blocos_Noticias">
+							<img class="img_noticias" src="../static/img/tecnologia_futuro.jpg" alt="Alunos ganharam"/>
+							<h2 class="titulo_noticia">9 Tendências de Tecnologia que você achou que não ia viver para ver</h2>
+							<p>
+								O mundo mudou. E muito. Nos últimos 10 anos, os avanços tecnológicos transformaram a forma como vivemos. Hoje, lembranças de antes dos anos 2000 parecem completamente anacrônica. Por exemplo, você lembra aquele tempo em que não usávamos o celular para praticamente todas nossas atividades? Pois é.
+								
+							</p>
 
-				<footer class="footer_copy"><p>&copy; Impacta 2017. Todos os direitos reservados.</p></div>
+						</div>
+
+						<div class="blocos_Noticias">
+							<img class="img_noticias" src="../static/img/funcionalidade.png" alt="Alunos ganharam"/>
+							<h2 class="titulo_noticia">Mais visibilidade e controle sobre o seu ambiente de software</h2>
+							<p>
+								Nesta semana, a SoftwareONE lançou novas funcionalidades para gestão de nuvem na plataforma PyraCloud – garantindo às empresas a capacidade de controlar e gerenciar melhor os gastos em seu ambiente multi-cloud. Considerando o relatório recente do IDC  – que apresenta que empresas de médio porte já usam, hoje em dia, mais de 13 provedores de serviços de nuvem diferentes e o Gartner mostrando que as organizações têm faturamentos de nuvens públicas duas a três vezes maiores do que o esperado, é mais importante do que nunca ser capaz de gerenciar e controlar o orçamento e gastos em um ambiente multi-cloud.
+								
+							</p>
+
+						</div>
+					</section>
+					<footer class="footer_copy"><p>&copy; Impacta 2017. Todos os direitos reservados.</p></div>
 
 
+			</section>
 		</section>
 		<!--=============Painel do Aluno======================-->
 		<section class="menu_right">

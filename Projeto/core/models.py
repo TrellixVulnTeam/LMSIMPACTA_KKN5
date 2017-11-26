@@ -372,3 +372,59 @@ class Sysdiagrams(models.Model):
         managed = False
         db_table = 'sysdiagrams'
         unique_together = (('principal_id', 'name'),)
+#----------------------------------------------------------------------------------------
+
+def AplicaTeste(Aluno):
+    
+    if Resposta.objects.filter(raaluno=Aluno.ra):
+        return " ja fez o teste"
+    else:
+        return "renderizar o teste"
+
+    
+def Aluno_Enviaram():
+
+    ListaDosQueFizeram = []
+    listaNome=[]
+    AlunosResponderam = Resposta.objects.all()
+    TodosAlunos = Aluno.objects.all()
+    for aluno in TodosAlunos:
+        for AlunoRespondeu in AlunosResponderam:
+            if aluno.id == AlunoRespondeu.raaluno:
+                ListaDosQueFizeram.append(aluno.nome)
+    return ListaDosQueFizeram
+
+def Alunos_N_Enviaram():
+    ListaDosQueFizeram = []
+    listaNome=[]
+    AlunosResponderam = Resposta.objects.all()
+    TodosAlunos = Aluno.objects.all()
+    for AlunoRespondeu in AlunosResponderam:
+        ListaDosQueFizeram.append(AlunoRespondeu.raaluno)
+    TodosAlunos = Aluno.objects.exclude(id__in=ListaDosQueFizeram)
+    return TodosAlunos
+
+def VerificaPrazo(dataatual,Questao):
+    ValidaQuestao = Questao.objects.all()
+    if ValidaQuestao.data_limite_entrega > dataatual:
+        return print ( "você não pode entregar a questão pois passou da data limite")
+    else:
+        return "Grud resposta"
+
+def ValidaMatricula(Aluno,IdDisciplina):
+    Matriculas = Matricula.objects.all()
+    Disciplinas = Disciplinaofertada.objects.all()
+    turmas = turma.objects.all()
+    for matricula in Matriculas:
+        for turma in turmas:
+            if matricula.idTurma == turma.idTurma:
+                if turma.id_disciplinaofertada == IdDisciplina:
+                    print("Já possui matricula nesse disciplina")
+                    break
+                else:
+                    print ("pode metricular")
+
+def CrudMatricula():
+    u = Aluno(ra = "12312",nome = "dsydg",email = "uhsdah",celular = "12323",idcurso = 1)
+    u.save()
+    return ("funfo")
