@@ -20,11 +20,30 @@ class AlunoForm(forms.ModelForm):
         model = Aluno
         fields = ["ra", "nome", "email", "curso"]
 
+class ProfessorForm(forms.ModelForm):
+
+    def save(self, commit=True):
+        professor = super(ProfessorForm,self).save(commit=False)
+        professor.set_password("123@mudar")
+        professor.perfil = 'P'
+        if commit:
+            professor.save()
+        return professor
+
+    class Meta:
+        model = Professor
+        fields = ["apelido","celular"]
+
 class AlunoAlterarForm(forms.ModelForm):
 
     class Meta:
         model = Aluno
         fields = ["nome", "email", "curso"]
+class ProfessorAlterarForm(forms.ModelForm):
+
+    class Meta:
+        model = Professor
+        fields = ["celular", "apelido"]
         
 class AlunoAdmin(UserAdmin):
     add_form = AlunoForm
@@ -36,6 +55,15 @@ class AlunoAdmin(UserAdmin):
     ordering = ["ra"]
     list_filter = ["curso"]
 
+class ProfessorAdmin(UserAdmin):
+    add_form = ProfessorForm
+    form = AlunoAlterarForm
+    add_fieldsets = ((None, { "fields": ("ra", "nome", "email", "apelido")}),)
+    fieldsets = ((None, { "fields": ("nome", "email", "apelido")}),)
+    list_display = ["ra","nome","email","apelido"]
+    filter_horizontal = []
+    ordering = ["ra"]
+    list_filter = ["apelido"]
 
 
 # Register your models here.
@@ -49,7 +77,7 @@ admin.site.register(Disciplinaofertada)
 admin.site.register(Gradecurricular)
 admin.site.register(Periodo)
 admin.site.register(Periododisciplina)
-admin.site.register(Professor)
+admin.site.register(Professor,ProfessorAdmin)
 admin.site.register(Questao)
 admin.site.register(Resposta)
 admin.site.register(Turma)

@@ -89,7 +89,10 @@ class Aluno(Usuario):
     celular = models.CharField("Celular", max_length=11)
     curso = models.ForeignKey(Curso)
 
-
+class Professor(Usuario):
+    celular = models.CharField(db_column='celular', max_length=11, blank=True,null=True)
+    apelido = models.CharField(db_column='Apelido',unique=True,max_length=30, blank = True , null = True)
+  
 class Arquivoquestao(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
     idquestao = models.ForeignKey('Questao', models.DO_NOTHING, db_column='IdQuestao')  # Field name made lowercase.
@@ -196,19 +199,6 @@ class Periododisciplina(models.Model):
         managed = False
         db_table = 'PeriodoDisciplina'
         unique_together = (('idperiodo', 'iddisciplina'),)
-
-
-class Professor(models.Model):
-    id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
-    ra = models.IntegerField(db_column='RA', unique=True)  # Field name made lowercase.
-    nome = models.CharField(db_column='Nome', max_length=120)  # Field name made lowercase.
-    email = models.CharField(db_column='Email', max_length=80)  # Field name made lowercase.
-    celular = models.CharField(db_column='Celular', max_length=11, blank=True, null=True)  # Field name made lowercase.
-    apelido = models.CharField(db_column='Apelido', unique=True, max_length=30, blank=True, null=True)  # Field name made lowercase.
-
-    class Meta:
-        managed = False
-        db_table = 'Professor'
 
 
 class Questao(models.Model):

@@ -24,8 +24,8 @@ urlpatterns = [
     url(r'^index/', index,name="index"),
 	url(r'^login/', login, {"template_name":"login.html"},name="login"),
     url(r'^logout/', logout,name="Sair"),
-	url(r'^contato/', contato,name="contato"),
-	url(r'^cadastro/', cadastro,name="cadastro"),
+	url(r'^contato.html', contato,name="contato"),
+	url(r'^cadastro.html', cadastro,name="cadastro"),
 	url(r'^aluno/', aluno,name="Aluno"),
     url(r'^professor/', professor,name="professor")
     

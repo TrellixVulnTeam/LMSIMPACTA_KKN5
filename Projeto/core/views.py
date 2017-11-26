@@ -34,19 +34,29 @@ def index(request):
         }
     return render(request, 'index.html',contexto)
 	
-
+def checa_aluno(usuario):
+    return usuario.perfil == "A"
 	
 def esquecisenha(request):
 	return render(request, 'esquecisenha.html')
-	
+
+
+
+@login_required(login_url="/login")
+@user_passes_test(checa_aluno)	
 def contato(request):
+    if 
+    var ={
+        "x":"container_professor"
+    }
 	return render(request, 'contato.html')
 	
+
+
 def cadastro(request):
 	return render(request, 'cadastro.html')
 
-def checa_aluno(usuario):
-    return usuario.perfil == "A"
+
 
 
 @login_required(login_url="/login")
