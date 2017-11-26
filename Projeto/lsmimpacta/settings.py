@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'lsmimpacta.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'LMSIMPACTAteste',
+        'NAME': 'LMSIMPACTA',
         'USER': 'sa',
-        'PASSWORD': '@Edgard1axl',
-        'HOST': 'BRUNO\SQLEXPRESS',
+        'PASSWORD': 'Arbeit@Adelt1999',
+        'HOST': 'Lucas-PC',
     }
 }
 
