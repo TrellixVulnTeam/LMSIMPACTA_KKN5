@@ -15,6 +15,7 @@ class Curso(models.Model):
 '''
 
 from __future__ import unicode_literals
+<<<<<<< HEAD
 
 from django.db import models
 
@@ -33,25 +34,115 @@ class Aluno(models.Model):
     def __str__(self):
         return self.nome
 
+=======
+from django.contrib.auth.models import AbstractBaseUser,BaseUserManager
+from django.db import models
+
+class UsuarioManager(BaseUserManager):
+    
+    def _criar_usuario(self, ra, password, **campos):
+        if not ra: 
+            raise ValueError("RA deve ser declarado!")
+        user = self.model(ra=ra, **campos)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_user(self, ra, password=None, **campos):
+        return self._criar_usuario(ra, password, **campos)
+
+    def create_superuser(self, ra, password=None, **campos):
+        campos.setdefault('perfil', 'C')
+        return self._criar_usuario(ra, password, **campos)
+
+
+# Create your models here.
+class Curso(models.Model):
+
+    id = models.IntegerField("Id",unique=True,primary_key=True)
+    sigla= models.CharField("Sigla",max_length=5)
+    nome=models.CharField("Nome",max_length=50)
+
+    def __str__(self):
+        return self.nome
+
+class Usuario(AbstractBaseUser):
+
+    ra = models.IntegerField("RA",unique=True)
+    password = models.CharField("Senha", max_length=200)
+
+    nome = models.CharField("Nome", max_length=100)
+    email = models.EmailField("E-Mail", max_length=50)
+
+    perfil = models.CharField("Perfil", max_length=1)
+    ativo = models.BooleanField("Ativo", default=True)
+
+    USERNAME_FIELD = 'ra'
+    REQUIRED_FIELDS = ['nome','email']
+
+    objects = UsuarioManager()
+
+    def get_full_name(self):
+        return self.nome
+
+    def get_short_name(self):
+        return self.nome
+
+    def __str__(self):
+        return self.nome
+
+    @property
+    def is_staff(self):
+        return self.perfil == "C"
+
+    def has_module_perms(self, package_name):
+        return True
+
+    def has_perm(self, perm, obj=None):
+        return True
+
+    def has_perms(self, perm_list, obj=None):
+        return True
+
+class Aluno(Usuario):
+
+    celular = models.CharField("Celular", max_length=11)
+    curso = models.ForeignKey(Curso)
+
+
+>>>>>>> master
 
 class Arquivoquestao(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
     idquestao = models.ForeignKey('Questao', models.DO_NOTHING, db_column='IdQuestao')  # Field name made lowercase.
+<<<<<<< HEAD
     arquivo = models.CharField(db_column='Arquivo', unique=True, max_length=500)  # Field name made lowercase.
+=======
+    arquivo = models.CharField(db_column='Arquivo', max_length=500)  # Field name made lowercase.
+>>>>>>> master
 
     class Meta:
         managed = False
         db_table = 'ArquivoQuestao'
+<<<<<<< HEAD
+=======
+        unique_together = (('arquivo', 'idquestao'),)
+>>>>>>> master
 
 
 class Arquivoresposta(models.Model):
     idarquivoresposta = models.AutoField(db_column='IdArquivoResposta', primary_key=True)  # Field name made lowercase.
     idresposta = models.ForeignKey('Resposta', models.DO_NOTHING, db_column='IdResposta')  # Field name made lowercase.
+<<<<<<< HEAD
     arquivo = models.CharField(db_column='Arquivo', unique=True, max_length=500, blank=True, null=True)  # Field name made lowercase.
+=======
+    arquivo = models.CharField(db_column='Arquivo', max_length=500, blank=True, null=True)  # Field name made lowercase.
+>>>>>>> master
 
     class Meta:
         managed = False
         db_table = 'ArquivoResposta'
+<<<<<<< HEAD
 
 
 class Curso(models.Model):
@@ -64,16 +155,27 @@ class Curso(models.Model):
         db_table = 'Curso'
     def __str__(self):
         return str(self.id) + " - " + self.nome 
+=======
+        unique_together = (('arquivo', 'idresposta'),)
+>>>>>>> master
 
 
 class Cursoturma(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
+<<<<<<< HEAD
     idcurso = models.ForeignKey(Curso, models.DO_NOTHING, db_column='IdCurso')  # Field name made lowercase.
+=======
+    idcurso = models.ForeignKey('CoreCurso', models.DO_NOTHING, db_column='IdCurso')  # Field name made lowercase.
+>>>>>>> master
     idturma = models.ForeignKey('Turma', models.DO_NOTHING, db_column='IdTurma')  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'CursoTurma'
+<<<<<<< HEAD
+=======
+        unique_together = (('idcurso', 'idturma'),)
+>>>>>>> master
 
 
 class Disciplina(models.Model):
@@ -82,7 +184,11 @@ class Disciplina(models.Model):
     teoria = models.DecimalField(db_column='Teoria', max_digits=3, decimal_places=0)  # Field name made lowercase.
     pratica = models.DecimalField(db_column='Pratica', max_digits=3, decimal_places=0)  # Field name made lowercase.
     cargahoraria = models.SmallIntegerField(db_column='CargaHoraria')  # Field name made lowercase.
+<<<<<<< HEAD
     emenda = models.TextField(db_column='Emenda')  # Field name made lowercase. This field type is a guess.
+=======
+    ementa = models.TextField(db_column='Ementa')  # Field name made lowercase. This field type is a guess.
+>>>>>>> master
     competencias = models.TextField(db_column='Competencias')  # Field name made lowercase. This field type is a guess.
     habilidades = models.TextField(db_column='Habilidades')  # Field name made lowercase. This field type is a guess.
     conteudo = models.TextField(db_column='Conteudo')  # Field name made lowercase. This field type is a guess.
@@ -103,12 +209,20 @@ class Disciplinaofertada(models.Model):
     class Meta:
         managed = False
         db_table = 'DisciplinaOfertada'
+<<<<<<< HEAD
         unique_together = (('ano', 'semestre'),)
+=======
+        unique_together = (('iddisciplina', 'ano', 'semestre'),)
+>>>>>>> master
 
 
 class Gradecurricular(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
+<<<<<<< HEAD
     idcurso = models.ForeignKey(Curso, models.DO_NOTHING, db_column='IdCurso', blank=True, null=True)  # Field name made lowercase.
+=======
+    idcurso = models.ForeignKey('CoreCurso', models.DO_NOTHING, db_column='IdCurso', blank=True, null=True)  # Field name made lowercase.
+>>>>>>> master
     ano = models.SmallIntegerField(db_column='Ano', blank=True, null=True)  # Field name made lowercase.
     semestre = models.CharField(db_column='Semestre', max_length=1, blank=True, null=True)  # Field name made lowercase.
 
@@ -120,32 +234,56 @@ class Gradecurricular(models.Model):
 
 class Matricula(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
+<<<<<<< HEAD
     idaluno = models.ForeignKey(Aluno, models.DO_NOTHING, db_column='IdAluno')  # Field name made lowercase.
+=======
+    idaluno = models.ForeignKey('CoreAluno', models.DO_NOTHING, db_column='IdAluno')  # Field name made lowercase.
+>>>>>>> master
     idturma = models.ForeignKey('Turma', models.DO_NOTHING, db_column='IdTurma')  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'Matricula'
+<<<<<<< HEAD
+=======
+        unique_together = (('idaluno', 'idturma'),)
+>>>>>>> master
 
 
 class Periodo(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
     idgradecurricular = models.ForeignKey(Gradecurricular, models.DO_NOTHING, db_column='IdGradeCurricular')  # Field name made lowercase.
+<<<<<<< HEAD
     numero = models.SmallIntegerField(db_column='Numero', unique=True)  # Field name made lowercase.
+=======
+    numero = models.SmallIntegerField(db_column='Numero')  # Field name made lowercase.
+>>>>>>> master
 
     class Meta:
         managed = False
         db_table = 'Periodo'
+<<<<<<< HEAD
+=======
+        unique_together = (('numero', 'idgradecurricular'),)
+>>>>>>> master
 
 
 class Periododisciplina(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
     idperiodo = models.ForeignKey(Periodo, models.DO_NOTHING, db_column='IdPeriodo')  # Field name made lowercase.
+<<<<<<< HEAD
     idnomedisciplina = models.ForeignKey(Disciplina, models.DO_NOTHING, db_column='IdNomeDisciplina')  # Field name made lowercase.
+=======
+    iddisciplina = models.ForeignKey(Disciplina, models.DO_NOTHING, db_column='IdDisciplina')  # Field name made lowercase.
+>>>>>>> master
 
     class Meta:
         managed = False
         db_table = 'PeriodoDisciplina'
+<<<<<<< HEAD
+=======
+        unique_together = (('idperiodo', 'iddisciplina'),)
+>>>>>>> master
 
 
 class Professor(models.Model):
@@ -164,7 +302,11 @@ class Professor(models.Model):
 class Questao(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
     idturma = models.ForeignKey('Turma', models.DO_NOTHING, db_column='IdTurma')  # Field name made lowercase.
+<<<<<<< HEAD
     numero = models.IntegerField(db_column='Numero', unique=True, blank=True, null=True)  # Field name made lowercase.
+=======
+    numero = models.IntegerField(db_column='Numero', blank=True, null=True)  # Field name made lowercase.
+>>>>>>> master
     data_limite_entrega = models.CharField(max_length=10, blank=True, null=True)
     descricao = models.TextField(db_column='Descricao', blank=True, null=True)  # Field name made lowercase. This field type is a guess.
     data = models.CharField(db_column='Data', max_length=10)  # Field name made lowercase.
@@ -172,12 +314,20 @@ class Questao(models.Model):
     class Meta:
         managed = False
         db_table = 'Questao'
+<<<<<<< HEAD
+=======
+        unique_together = (('numero', 'idturma'),)
+>>>>>>> master
 
 
 class Resposta(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
     idquestao = models.ForeignKey(Questao, models.DO_NOTHING, db_column='IdQuestao')  # Field name made lowercase.
+<<<<<<< HEAD
     raaluno = models.IntegerField(db_column='RaAluno', unique=True)  # Field name made lowercase.
+=======
+    idaluno = models.ForeignKey('CoreAluno', models.DO_NOTHING, db_column='IdAluno')  # Field name made lowercase.
+>>>>>>> master
     data_avaliacao = models.CharField(db_column='Data_Avaliacao', max_length=10)  # Field name made lowercase.
     nota = models.DecimalField(db_column='Nota', max_digits=4, decimal_places=2, blank=True, null=True)  # Field name made lowercase.
     avaliacao = models.TextField(db_column='Avaliacao', blank=True, null=True)  # Field name made lowercase. This field type is a guess.
@@ -187,11 +337,19 @@ class Resposta(models.Model):
     class Meta:
         managed = False
         db_table = 'Resposta'
+<<<<<<< HEAD
+=======
+        unique_together = (('idquestao', 'idaluno'),)
+>>>>>>> master
 
 
 class Turma(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
+<<<<<<< HEAD
     identificador = models.CharField(unique=True, max_length=1)
+=======
+    identificador = models.CharField(max_length=1)
+>>>>>>> master
     turno = models.CharField(db_column='Turno', max_length=15, blank=True, null=True)  # Field name made lowercase.
     id_disciplinaofertada = models.ForeignKey(Disciplinaofertada, models.DO_NOTHING, db_column='Id_DisciplinaOfertada', blank=True, null=True)  # Field name made lowercase.
     idprofessor = models.ForeignKey(Professor, models.DO_NOTHING, db_column='IdProfessor', blank=True, null=True)  # Field name made lowercase.
@@ -199,6 +357,10 @@ class Turma(models.Model):
     class Meta:
         managed = False
         db_table = 'Turma'
+<<<<<<< HEAD
+=======
+        unique_together = (('identificador', 'id_disciplinaofertada'),)
+>>>>>>> master
 
 
 class AuthGroup(models.Model):
@@ -230,6 +392,7 @@ class AuthPermission(models.Model):
         unique_together = (('content_type', 'codename'),)
 
 
+<<<<<<< HEAD
 class AuthUser(models.Model):
     password = models.CharField(max_length=128)
     last_login = models.DateTimeField(blank=True, null=True)
@@ -278,6 +441,40 @@ class CoreCurso(models.Model):
     class Meta:
         managed = False
         db_table = 'core_curso'
+=======
+class CoreAluno(models.Model):
+    usuario_ptr = models.ForeignKey('CoreUsuario', models.DO_NOTHING, primary_key=True,unique=True)
+    celular = models.CharField(max_length=11)
+    curso = models.ForeignKey('CoreCurso', models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'core_aluno'
+
+
+class CoreCurso(models.Model):
+    id = models.IntegerField(primary_key=True)
+    sigla = models.CharField(max_length=5)
+    nome = models.CharField(max_length=50)
+
+    class Meta:
+        managed = False
+        db_table = 'core_curso'
+
+
+class CoreUsuario(models.Model):
+    last_login = models.DateTimeField(blank=True, null=True)
+    ra = models.IntegerField(unique=True)
+    password = models.Field(max_length=200)
+    nome = models.CharField(max_length=100)
+    email = models.CharField(max_length=50)
+    perfil = models.CharField(max_length=1)
+    ativo = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'core_usuario'
+>>>>>>> master
 
 
 class DjangoAdminLog(models.Model):
@@ -287,7 +484,11 @@ class DjangoAdminLog(models.Model):
     action_flag = models.SmallIntegerField()
     change_message = models.TextField()
     content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING, blank=True, null=True)
+<<<<<<< HEAD
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+=======
+    user = models.ForeignKey(CoreUsuario, models.DO_NOTHING)
+>>>>>>> master
 
     class Meta:
         managed = False
@@ -322,3 +523,19 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
+<<<<<<< HEAD
+=======
+
+
+class Sysdiagrams(models.Model):
+    name = models.CharField(max_length=128)
+    principal_id = models.IntegerField()
+    diagram_id = models.AutoField(primary_key=True)
+    version = models.IntegerField(blank=True, null=True)
+    definition = models.BinaryField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'sysdiagrams'
+        unique_together = (('principal_id', 'name'),)
+>>>>>>> master
