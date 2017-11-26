@@ -24,4 +24,37 @@ class Professor(Usuario):
     }
 
     return render(request, 'matricula.html', context)
+    
+    # NO FORMS.PY
+    
+    from .models import *
+from autentication.models import *
+from django.forms import ModelForm
+
+class AlunoForm(Model.Form):
+
+    def save(self, commit=True):
+        aluno = super(AlunoForm, self).save(commit=False)
+        aluno.set_password("123")
+        aluno.perfil = 'A'
+        if commit:
+            aluno.save()
+        return aluno
+
+    class Meta:
+        model = Aluno
+        fields = ['ra', 'nome', 'email', 'celular', 'sigla_curso']
+
+class ProfessorForm(Model.Form):
+
+    def save(self, commit=True)
+        professor = super(ProfessorForm, self).save(commit=False)
+        professor.set_password('123')
+        professor.perfil = 'P'
+        if commit:
+            professor.save()
+        return professor
+
+    class Meta:
+
        
