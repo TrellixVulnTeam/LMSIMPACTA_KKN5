@@ -90,7 +90,6 @@ class Aluno(Usuario):
     curso = models.ForeignKey(Curso)
 
 
-
 class Arquivoquestao(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
     idquestao = models.ForeignKey('Questao', models.DO_NOTHING, db_column='IdQuestao')  # Field name made lowercase.

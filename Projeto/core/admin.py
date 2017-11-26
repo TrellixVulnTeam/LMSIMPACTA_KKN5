@@ -1,4 +1,4 @@
-'''
+
 from django.contrib import admin
 from django import forms
 from core.models import *
@@ -20,4 +20,3 @@ admin.site.register(Questao)
 admin.site.register(Resposta)
 admin.site.register(Turma)
 
-'''
