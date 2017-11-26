@@ -1,51 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-		<title>FIT - Faculdade Impacta Tecnologia</title>
-		<meta charset="utf-8"/>
-		<link rel="stylesheet" href="../static/css/estilo_header_footer.css">
-		<link rel="stylesheet" href="../static/css/StyleAluno.css">
-		<link href="../static/css/fontes/titillium-web.css" rel="stylesheet" />
-		<link rel="shortcut icon" href="../static/img/logo_title.png">
-		<script type="text/javascript" src="../static/js/script.js"> </script>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<script type="text/javascript" src="../static/js/Script_Aluno.js"> </script>
+		{% include 'content_base.html' %}
+		{% block head %}
+
+		{% endblock %}
 
    </head>
 <body>
-	<header class="header">
-		<input type="checkbox" id="btnreder">
-		<label for="btnreder">&#9776;</label>
-		<nav class="reder">
-			<a href="index.html" class="logo_header">
-				<img src="../static/img/logo.png" alt="Logo da Impacta">
-			</a>
-
-				<ul class="topo_do_reder">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="aluno.html">Aluno</a></li>
-					<li><a href="index.html #index_home">Sobre</a></li>
-					<li><a href="contato.html">Contato</a></li>
-				
-				</ul>			
-		</nav>
-		<nav class="log_right">
-			<ul class="log_cad_header">
-				<li class="log_header">
-					<a href="login.html" role="button">LOGIN</a>
-				</li>
-				<li class="cad_header">
-					<a href="cadastro.html" role="button">FAÇA SUA MATRÍCULA</a>
-				</li>
-			</ul>
-		</nav>
-		<nav class="invis_menu">
-			<a href="cadastro.html"><img src="../static/img/cadastro.png" alt="logo cadastro"></a>
-		</nav>		
-		<nav class="invis_menu">
-			<a href="cadastro.html"><img src="../static/img/login.png" alt="logo login"></a>
-		</nav>
-	</header>
+	{% block header %}
+	
+	{% endblock %}
 	<!--=============================================================================-->
 
 
@@ -61,6 +26,8 @@
 			</div>
 			<div id="menu_left">
 				<nav>
+
+					<a href="#"> Atividades </a>
 					<a href="#"> Atividades </a>
 					<a href="#"> Pendencias </a>
 					<a href="#"> Contate um Professor </a>
@@ -84,7 +51,7 @@
 						</div>
 
 						<div class="blocos_Noticias">
-							<img class="img_noticias" src="../static/img/imagem2.jpg" alt="Alunos ganharam"/>
+							<img class="img_noticias" src="../static/img/noticia2.jpg" alt="Alunos ganharam"/>
 							<h2 class="titulo_noticia">Alunos da Faculdade Impacta vencem a 5.ª edição do Hackathon da FIESP</h2>
 							<p>
 								A ferramenta já está em utilização na Cruz Vermelha com aprovação total dos seus voluntários e colaboradores. Para os alunos Douglas Torres, um dos idealizadores da solução, o resultado foi fantástico: “Nos pudemos contribuir com a parte de gestão das informações, eles não tinham esse controle por departamento, tem sido um grande facilitador para eles”.

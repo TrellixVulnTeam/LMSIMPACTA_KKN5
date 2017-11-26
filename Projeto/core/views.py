@@ -46,7 +46,11 @@ def cadastro(request):
 	return render(request, 'cadastro.html')
 	
 def aluno(request):
-	return render(request, "aluno.html")
+    contexto = {
+        "teste":"teste"
+        }
+    return render(request, 'aluno.html',contexto)
+    
 
 """send_mail(
     'Subject here',
