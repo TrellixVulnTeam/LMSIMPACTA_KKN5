@@ -80,8 +80,8 @@ WSGI_APPLICATION = 'lsmimpacta.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-#BANCO LOCAL
-
+#BD LOCAL
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
@@ -91,9 +91,10 @@ DATABASES = {
         'HOST': 'Lucas-PC',
     }
 }
-
-#BANCO AZURE
 '''
+
+#BD NO AZURE
+
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
@@ -103,7 +104,7 @@ DATABASES = {
         'HOST': 'bancosql1700262.database.windows.net',
     }
 }
-'''
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators

@@ -22,9 +22,6 @@ def banana(requisicao):
     return render(request,"contato.html")
 '''
 def index(request):
-<<<<<<< HEAD
-	return render(request, 'index.html')
-=======
     'novo = Alunos_N_Enviaram()'
     contexto = {
         "cursos": 'Aluno.objects.all()',
@@ -35,7 +32,6 @@ def index(request):
         "idade":-18
         }
     return render(request, 'index.html',contexto)
->>>>>>> master
 	
 def login(request):
 	return render(request, 'login.html')
@@ -51,9 +47,6 @@ def cadastro(request):
 	
 def aluno(request):
 	return render(request, "aluno.html")
-<<<<<<< HEAD
-	
-=======
 
 """send_mail(
     'Subject here',
@@ -62,4 +55,3 @@ def aluno(request):
     ['to@example.com'],
     fail_silently=False,
 )"""
->>>>>>> master
