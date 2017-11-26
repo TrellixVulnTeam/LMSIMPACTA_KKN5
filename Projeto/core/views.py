@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.core.mail import send_mail
+from django.contrib.auth.decorators import login_required, user_passes_test
 from core.models import Aluno
+
 
 from core.modelos import *
 '''from core.models import Curso
@@ -33,8 +34,7 @@ def index(request):
         }
     return render(request, 'index.html',contexto)
 	
-def login(request):
-	return render(request, 'login.html')
+
 	
 def esquecisenha(request):
 	return render(request, 'esquecisenha.html')
@@ -44,9 +44,19 @@ def contato(request):
 	
 def cadastro(request):
 	return render(request, 'cadastro.html')
-	
+
+def checa_aluno(usuario):
+    return usuario.perfil == "A"
+
+
+@login_required(login_url="/login")
+@user_passes_test(checa_aluno)
 def aluno(request):
 	return render(request, "aluno.html")
+
+@login_required(login_url="/login.html")	
+def professor(request):
+	return render(request, "professor.html")
 
 """send_mail(
     'Subject here',

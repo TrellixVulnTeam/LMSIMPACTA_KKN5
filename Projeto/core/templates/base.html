@@ -1,0 +1,24 @@
+<title>FIT - </title>
+{% block scripts %}
+    <link rel="stylesheet" href="/static/site.css"/>
+{% endblock %}
+<header>
+    <h1></h1>
+    <nav>
+        {% if user.is_authenticated %}
+            <a href="{% url 'Sair' %}">Sair</a>
+            <a href="{% url 'Aluno' %}">Aluno</a>
+            Olá {{ user }}
+        {% else %}
+            <a href="{% url 'login' %}">Entrar</a>
+        {% endif %}
+    </nav>
+</header>
+<section>
+    {% block conteudo %}
+
+    {% endblock %}
+</section>
+<footer>
+    Todos os direitos reservados!
+</footer>

@@ -16,13 +16,17 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from core.views import *
+from django.contrib.auth.views import login,logout
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 	url(r'^$', index),
-    url(r'^index.html', index),
-	url(r'^login.html', login),
-	url(r'^contato.html', contato),
-	url(r'^cadastro.html', cadastro),
-	url(r'^aluno.html', aluno),
+    url(r'^index/', index,name="index"),
+	url(r'^login/', login, {"template_name":"login.html"},name="login"),
+    url(r'^logout/', logout,name="Sair"),
+	url(r'^contato/', contato,name="contato"),
+	url(r'^cadastro/', cadastro,name="cadastro"),
+	url(r'^aluno/', aluno,name="Aluno"),
+    url(r'^professor/', professor,name="professor")
+    
 ]
