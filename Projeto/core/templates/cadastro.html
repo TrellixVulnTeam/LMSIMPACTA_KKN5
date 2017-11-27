@@ -1,49 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-		<title>FIT - Faculdade Impacta Tecnologia</title>
-		<meta charset="utf-8"/>
-		<link  rel="stylesheet " type="text/css" href="../static/css/style.css"/>
-		<link rel="stylesheet" href="../static/css/estilo_header_footer.css">
-		<link href="../static/css/fontes/titillium-web.css" rel="stylesheet" />
-		<link rel="shortcut icon" href="../static/img/logo_title.png">
-		<script type="text/javascript" src="../js/script.js"> </script>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% include 'content_base.html' %}
+	{% block head %}
+
+	{% endblock %}
    </head>
 <body>
-	<header class="header">
-		<input type="checkbox" id="btnreder">
-		<label for="btnreder">&#9776;</label>
-		<nav class="reder">
-			<a href="index.html" class="logo_header">
-				<img src="../static/img/logo.png" alt="Logo da Impacta">
-			</a>
-
-				<ul class="topo_do_reder">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="aluno.html">Alunos</a></li>
-					<li><a href="index.html #index_home">Sobre</a></li>
-					<li><a href="contato.html">Contato</a></li>
-				
-				</ul>		
-		</nav>
-		<nav class="log_right">
-			<ul class="log_cad_header">
-				<li class="log_header">
-					<a href="login.html" role="button">LOGIN</a>
-				</li>
-				<li class="cad_header">
-					<a href="cadastro.html" role="button">FAÇA SUA MATRÍCULA</a>
-				</li>
-			</ul>
-		</nav>
-		<nav class="invis_menu">
-			<a href="cadastro.html"><img src="../static/img/cadastro.png" alt="logo cadastro"></a>
-		</nav>		
-		<nav class="invis_menu">
-			<a href="cadastro.html"><img src="../static/img/login.png" alt="logo login"></a>
-		</nav>
-	</header>
+	{% block header %}
+	
+	{% endblock %}
 	
 		<main class="conteudo">
 			<div class="PgCadastro">
