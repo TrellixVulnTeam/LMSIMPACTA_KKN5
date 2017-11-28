@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		{% include 'content_base.html' %}
+		{% block head %}
+
+		{% endblock %}
+
+   </head>
+<body>
+	{% block header %}
+	
+	{% endblock %}
+	<!--=============================================================================-->
+
+
+	
+	<main class="ContainerAluno">
+		<section class="central">
+
+		<!--=========MENU LATERAL===================-->
+			<div class="div_btn_lateral">
+				<input type="checkbox" id="btnMenuLateral" onclick="ShowHide_apk();">
+				<label for="btnMenuLateral" class="iconebtn">&#9776;</label>
+				<label for="btnMenuLateral" class="txtbtn">Menu</label>
+			</div>
+			<div id="menu_left">
+				<nav>
+
+					<a href="#"> Atividades </a>
+					<a href="#"> Alunos com pendencias </a>
+					<a href="#"> Contate um Aluno </a>
+					<a href="questao_form"> Cadastrar questões </a>
+				</nav>			
+			</div>
+		<!--==============CONTEUDO======================-->
+
+			<section class="ContainerContent">
+
+					<h1 class="titulo">Cadastro de Questão</h1>	
+					<h2>{{ curso }}</h2>	
+					<form method="POST" action="" enctype="multipart/form-data">
+					    {{ form.as_p }}
+					    {% csrf_token %}
+					    <button type="submit" class="botao">Enviar</button> 
+					</form>	
+					<footer class="footer_copy"><p>&copy; Impacta 2017. Todos os direitos reservados.</p></div>
+
+
+			</section>
+		</section>
+		<!--=============Painel do Aluno======================-->
+		<section class="menu_right">
+
+			<div class="perfil_aluno">
+
+				<img src="../static/img/dep01.jpg" alt="Imagem de Perfil">
+				<h3>Nome:{{user}}</h3>
+				<h3>Ra: {{user.ra}}</h3>
+			</div>
+
+			<div class="mural_recados">
+				<h1>Mural de recados</h1>
+
+				<div class="recado">
+					<h2>Trabalho Dev. Ops</h2>
+					<p>
+						Nessa terça feira haverá um trabalho avaliativo 
+						de Dev. Ops vai valer nota entao tem qu evir 
+						porque senao vai ficar com falta e com 0 na 
+						media! :)
+					</p>
+				</div>
+
+				<div class="recado">
+					<h2>Professor Yuri</h2>
+					<p>
+						Hoje o professor Yuri vai fazer uma apresentação
+						de como fazer o Django funcionar, é muito dificil
+						quem faltar falece.
+					</p>
+				</div>
+
+			</div>
+			
+		</section>
+		
+	</main>
+
+
+	
+	
+</body>
+</html>

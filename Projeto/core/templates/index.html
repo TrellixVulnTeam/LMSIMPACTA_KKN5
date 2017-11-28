@@ -3,15 +3,16 @@
 
 <!-- INICIO -->
 <!-- Define padrão de escrita, aponta o css, script e define o Title da pagina -->
-	<head>
+	<head>			
 		<title>FIT - Faculdade Impacta Tecnologia</title>
 		<meta charset="utf-8"/>
-		<link  rel="stylesheet " type="text/css" href="../static/css/style.css">
-		<link rel="stylesheet" href="../static/css/estilo_header_footer.css">
-		<link href="../static/css/fontes/titillium-web.css" rel="stylesheet" />
-		<link rel="shortcut icon" href="../static/img/logo_title.png">
-		<script type="text/javascript" src="../static/js/script.js"> </script>
+		<link rel="stylesheet" href="static/css/estilo_header_footer.css">
+		<link rel="stylesheet" href="static/css/StyleAluno.css">
+		<link rel="stylesheet" href="../static/css/Style.css">
+		<link href="static/css/fontes/titillium-web.css" rel="stylesheet" />
+		<link rel="shortcut icon" href="static/img/logo_title.png">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script type="text/javascript" src="static/js/Script_Aluno.js"> </script>
    </head>
 <body>
 		
@@ -19,31 +20,45 @@
 			<input type="checkbox" id="btnreder">
 			<label for="btnreder">&#9776;</label>
 			<nav class="reder">
-				<a href="index.html" class="logo_header">
+				<a href="" class="logo_header">
 					<img src="../static/img/logo.png" alt="Logo da Impacta">
 				</a>
 
 				<ul class="topo_do_reder">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="aluno.html">Alunos</a></li><li><a href="contato.html">Contato</a></li>
-				
-				</ul>			
+						<li><a href="{% url 'index'%}">Home</a></li>
+						{% if user.perfil == 'A'%}
+							<li><a href="{% url 'Aluno'%}">Alunos</a></li>
+						{%endif%}
+						{% if user.perfil == 'P'%}
+						<li><a href="{% url 'professor'%}">Professor</a></li>
+						{%endif%}
+						<li><a href="{% url 'index'%}">Sobre</a></li>
+						<li><a href="{% url 'contato'%}">Contato</a></li>
+					
+					</ul>		
 			</nav>
 			<nav class="log_right">
 				<ul class="log_cad_header">
+					{% if user.is_authenticated %}
+					<h3 class="teste">Olá {{ user }}</h3>
 					<li class="log_header">
-						<a href="login.html" role="button">LOGIN</a>
+						<a href="logout" role="button">Sair</a>
 					</li>
-					<li class="cad_header">
-						<a href="cadastro.html" role="button">FAÇA SUA MATRÍCULA</a>
-					</li>
+					{% else %}
+				<li class="log_header">
+					<a href="login" role="button">LOGIN</a>
+				</li>
+				<li class="cad_header">
+					<a href="matricula" role="button">FAÇA SUA MATRÍCULA</a>
+				</li>
+				{% endif %}
 				</ul>
 			</nav>
 			<nav class="invis_menu">
-				<a href="cadastro.html"><img src="../static/img/cadastro.png" alt="logo cadastro"></a>
+				<a href="cadastro"><img src="../static/img/cadastro.png" alt="logo cadastro"></a>
 			</nav>		
 			<nav class="invis_menu">
-				<a href="cadastro.html"><img src="../static/img/login.png" alt="logo login"></a>
+				<a href="cadastro"><img src="../static/img/login.png" alt="logo login"></a>
 			</nav>
 		</header>
 
@@ -54,7 +69,7 @@
 			
 			<!--INICIO DO CONTEUDO DO SITE-->
 			
-			<section class="">
+			<section id="index_home">
 				<div class="caixadetexto">
 
 					<div class="conteudocaixadetexto">
@@ -73,13 +88,8 @@
 						</div>					
 					
 						<div class= "coluna3">
-						<!--	<h2>Quem Somos </h2>
-						       {% for curso in cursos %}
-							<li > {{curso.nome}} </li>
-								{% endfor %} -->
-							<li>{{faculdade}}</li>	
+							<h2>Quem Somos</h2>
 							<p>
-							
 							A Faculdade Impacta Tecnologia nasceu da percepção de um Grupo, <br>
 							que desde 1998 é referência em TI, Gestão e Design, para suprir a falta de <br>
 							mão de obra especializada do mercado de tecnologia <br>

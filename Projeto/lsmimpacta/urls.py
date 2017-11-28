@@ -17,16 +17,27 @@ from django.conf.urls import url
 from django.contrib import admin
 from core.views import *
 from django.contrib.auth.views import login,logout
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 	url(r'^$', index),
-    url(r'^index/', index,name="index"),
-	url(r'^login/', login, {"template_name":"login.html"},name="login"),
-    url(r'^logout/', logout,name="Sair"),
-	url(r'^contato.html', contato,name="contato"),
-	url(r'^cadastro.html', cadastro,name="cadastro"),
-	url(r'^aluno/', aluno,name="Aluno"),
-    url(r'^professor/', professor,name="professor")
+    url(r'index$', index,name="index"),
+	url(r'login/$', login, {"template_name":"login.html"},name="login"),
+    url(r'logout/$', logout,name="Sair"),
+	url(r'contato/$', contato,name="contato"),
+	url(r'cadastro/$', cadastro,name="cadastro"),
+	url(r'aluno', aluno,name="Aluno"),
+	url(r'professor', professor,name="Professor"),
+    url(r'professor$', professor,name="professor"),
+    url(r'restrito$', restrito,name="restrito"),
+    url(r'questao_form/$', questao_form,name="questao_form"),
+    url(r'^matricula/$', matricula, name='matricula')
+
     
 ]
+
+if settings.DEBUG:
+    urlpatterns +=static(settings.MEDIA_URL,
+    document_root=settings.MEDIA_ROOT)

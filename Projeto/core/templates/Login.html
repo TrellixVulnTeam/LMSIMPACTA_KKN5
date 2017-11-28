@@ -1,12 +1,34 @@
+<!DOCTYPE html>
 
-	{% extends 'base.html' %}
-	<div id="main" class="container"> 	
-	 {% block conteudo %}
-	 <form action ="" method="POST">
-		 {{ form.as_p}}
-			{% csrf_token %}
-			<input type="submit" value="enviar"/>
-			
+<html lang="en">
+	<head>		
+		{% include 'content_base.html' %}
+		{% block head %}
 
-	 </form>
-	 {% endblock %}
+		{% endblock %}
+   </head>
+<body>
+	{% block header %}
+	
+	{% endblock %}
+	
+	{% if user.is_authenticated %}
+	<br><br><br>
+		<h1>Você já está logado</h1>
+		<a href="logout" class="button-primary">Fazer logout</a>
+	{%else%}	
+
+		<div id="main" class="container"> 	
+			<form action ="" method="POST"class="wpl-track-me"id="loginform">
+				<h1 class="h1_form_Login">Login</h1>
+					{{ form.as_p}}
+					{% csrf_token %} <br>
+				<input type="submit" value="enviar"id="wp-submit" class="button-primary"/>		
+
+			</form>
+			<footer class="footer_copy"><p>&copy; Impacta 2017. Todos os direitos reservados.</p>
+		</div>
+	{%endif%}
+
+</body>
+</html>

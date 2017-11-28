@@ -1,3 +1,4 @@
+
 body{
 	margin:0;
 	font-family: sans-serif;
@@ -14,9 +15,14 @@ body{
 	float: left;
 }
 /*Div do Menu*/
+.teste{
+	font-size: 16px;
+	color: #fff;
+}
 header{
 	background-color: #424242;
 	font-weight: 500;
+	height: 51px;
 	position: fixed;
 	width: 100%;
 	top: 0;
@@ -60,7 +66,7 @@ header label:hover{
 	text-decoration: none;
 	padding: 15px 20px;
 	display: block;
-	border-radius: 8px;
+	border-radius: 3px;
 	margin: 4px 2px;	
     transition: all .6s;
 }

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% block head %}
+		<title>FIT - Faculdade Impacta Tecnologia</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="../static/css/estilo_header_footer.css">
+		<link rel="stylesheet" href="../static/css/StyleAluno.css">
+		<link rel="stylesheet" href="../static/css/Style.css">
+		<link href="../static/css/fontes/titillium-web.css" rel="stylesheet" />
+		<link rel="shortcut icon" href="../static/img/logo_title.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script type="text/javascript" src="../static/js/Script_Aluno.js"> </script>
+	{% endblock %}
+
+</head>
+<body>
+	{% block header %}
+		<header class="header">
+			<input type="checkbox" id="btnreder">
+			<label for="btnreder">&#9776;</label>
+			<nav class="reder">
+				<a href="" class="logo_header">
+					<img src="../static/img/logo.png" alt="Logo da Impacta">
+				</a>
+
+					<ul class="topo_do_reder">
+						<li><a href="{% url 'index'%}">Home</a></li>
+						{% if user.perfil == 'A'%}
+							<li><a href="{% url 'Aluno'%}">Alunos</a></li>
+						{%endif%}
+						{% if user.perfil == 'P'%}
+						<li><a href="{% url 'professor'%}">Professor</a></li>
+						{%endif%}
+						<li><a href="{% url 'index'%}">Sobre</a></li>
+						<li><a href="{% url 'contato'%}">Contato</a></li>
+					
+					</ul>			
+			</nav>
+			<nav class="log_right">
+				<ul class="log_cad_header" >
+						{% if user.is_authenticated %}
+						<h3 class="teste">Olá {{ user }}</h3>
+						
+						<li class="log_header">
+							<a href="logout" role="button" >Sair</a>
+						</li>
+					
+						{% else %}
+					<li class="log_header">
+						<a href="{% url 'login'%}" role="button">LOGIN</a>
+					</li>
+					<li class="cad_header">
+						<a href="{% url 'matricula'%}" role="button">FAÇA SUA MATRÍCULA</a>
+					</li>
+					{% endif %}
+				</ul>
+			</nav>
+			<nav class="invis_menu">
+				<a href="cadastro"><img src="../static/img/cadastro.png" alt="logo cadastro"></a>
+			</nav>		
+			<nav class="invis_menu">
+				<a href="cadastro"><img src="../static/img/login.png" alt="logo login"></a>
+			</nav>
+		</header>	
+	{% endblock %}
+
+
+</body>
