@@ -106,3 +106,7 @@ def CrudMatricula():
     u = Aluno(ra = "12312",nome = "dsydg",email = "uhsdah",celular = "12323",idcurso = 1)
     u.save()
     return ("funfo")
+
+
+
+    
