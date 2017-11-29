@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required, user_passes_test
 from core.models import Aluno
 from core.forms import Matricula, QuestaoForm
+from core.controller import *
 
 from core.modelos import *
 '''from core.models import Curso
@@ -23,9 +24,9 @@ def banana(requisicao):
     return render(request,"contato.html")
 '''
 def index(request):
-    'novo = Alunos_N_Enviaram()'
+    novo = VerificaPrazo(2)
     contexto = {
-        "cursos": 'Aluno.objects.all()',
+        "cursos": novo,
         "faculdade":'novo',
         "pagina":"Homepage",
         "usuario":"Yuri",
