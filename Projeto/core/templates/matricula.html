@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+	{% include 'content_base.html' %}
+	{% block head %}
+
+	{% endblock %}
+   </head>
+<body>
+	{% block header %}
+	
+    {% endblock %}
+    <br><br><br><br>
+    <div class="PgCadastro">
+            
+        <div class="Cadastro">
+            <div class="FrmCadastro">
+                <h1 class="titulo">Matricula</h1>	
+                <h2>{{ curso }}</h2>	
+                <form method="POST" action="" enctype="multipart/form-data" id="FrmCadastro">
+                    <div class="row">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <button class="botao"type="submit">Enviar</button>
+                </form>	
+                <div class="row"></div><footer class="footer_copy"><p>&copy; Impacta 2017. Todos os direitos reservados.</p></div></div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

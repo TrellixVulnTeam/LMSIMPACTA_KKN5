@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>FIT - Faculdade Impacta Tecnologia</title>
+		<meta charset="utf-8"/>
+		<link  rel="stylesheet " type="text/css" href="../static/css/style.css"/>
+		<link  rel="stylesheet " type="text/css" href="../static/css/style.1.css"/>
+		<link rel="stylesheet" href="../static/css/estilo_header_footer.css">
+		<link href="../static/css/fontes/titillium-web.css" rel="stylesheet" />
+		<link rel="shortcut icon" href="../static/img/logo_title.png">
+		<script type="text/javascript" src="../js/script.js"> </script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+	{% block header %}
+	
+	{% endblock %}
+
+	
+	<div id="main" class="container"> 	
+	 <form name="loginform" id="loginform" action="#" method="post" class="wpl-track-me"> 
+		<p class="login-usernameRec">
+	
+			<input type="text" name="log" id="user_login" class="input" placeholder="Email" value="" size="20" /> 
+		</p> 
+		<p class="login-password"> 
+		<label for="user_pass">CPF</label><input type="text" name="pwd" id="user_pass" class="input" placeholder="CPF" value="" size="20" /> 
+		</p> 	
+		<p class="login-remember"><label><input name="rememberme" type="checkbox" id="rememberme" value="forever"> Lembrar Login</label></p>
+		<p class="login-submit"><input type="submit" name="wp-submit" id="wp-submit" class="button-primary" value="Enviar No Email" />
+		<input type="hidden" name="redirect_to" value="#"/>
+		</p> 
+		<a href="#"> Esqueci minha senha</a>
+		
+		</p>
+
+		
+	</form> 
+</div>
+	
+
+
+
+	<div class="rodape">
+		<input type="checkbox" id="btnredes">
+		<label for="btnredes" class="siga">
+			<h1>Siga a Impacta:</h1>
+		</label>
+
+		<div class="redes">
+			
+			<a href="https://www.youtube.com/user/GrupoImpacta/"><img src="../static/img/yt.png" alt="youtube"></a>
+			<a href="https://www.facebook.com/FacImpacta/"><img src="../static/img/fb.png" alt="facebook"></a>
+			<a href="https://twitter.com/facimpacta/"><img src="../static/img/tt.png." alt="twitter"></a>
+			<a href="https://www.instagram.com/facimpacta/"><img src="../static/img/ig.png." alt="instagram"></a>
+			
+		</div>
+		
+		<img src="../static/img/logo_title.png" alt="Template da Faculdade" class="toppo"/>		
+			
+	</div>
+	<div class="footer_copy"><p>&copy; Impacta 2017. Todos os direitos reservados.</p></div>
+
+</body>
+</html>

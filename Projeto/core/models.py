@@ -89,16 +89,28 @@ class Aluno(Usuario):
     celular = models.CharField("Celular", max_length=11)
     curso = models.ForeignKey(Curso)
 
+  
+class Professor(Usuario):
+    celular = models.CharField(db_column='celular', max_length=11, blank=True,null=True)
+    apelido = models.CharField(db_column='Apelido',unique=True,max_length=30, blank = True , null = True)
 
+  
 class Arquivoquestao(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
     idquestao = models.ForeignKey('Questao', models.DO_NOTHING, db_column='IdQuestao')  # Field name made lowercase.
     arquivo = models.CharField(db_column='Arquivo', max_length=500)  # Field name made lowercase.
 
+    
+
     class Meta:
         managed = False
         db_table = 'ArquivoQuestao'
         unique_together = (('arquivo', 'idquestao'),)
+
+    def __str__(self):
+        return self.idquestao
+
+    
 
 
 class Arquivoresposta(models.Model):
@@ -111,6 +123,10 @@ class Arquivoresposta(models.Model):
         db_table = 'ArquivoResposta'
         unique_together = (('arquivo', 'idresposta'),)
 
+    def __str__(self):
+        return self.idresposta
+
+
 
 class Cursoturma(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
@@ -121,6 +137,9 @@ class Cursoturma(models.Model):
         managed = False
         db_table = 'CursoTurma'
         unique_together = (('idcurso', 'idturma'),)
+
+    def __str__(self):
+        return self.idturma
 
 
 class Disciplina(models.Model):
@@ -140,6 +159,9 @@ class Disciplina(models.Model):
         managed = False
         db_table = 'Disciplina'
 
+    def __str__(self):
+        return self.nome
+
 
 class Disciplinaofertada(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
@@ -151,6 +173,9 @@ class Disciplinaofertada(models.Model):
         managed = False
         db_table = 'DisciplinaOfertada'
         unique_together = (('iddisciplina', 'ano', 'semestre'),)
+
+    def __str__(self):
+        return self.iddisciplina
 
 
 class Gradecurricular(models.Model):
@@ -164,6 +189,9 @@ class Gradecurricular(models.Model):
         db_table = 'GradeCurricular'
         unique_together = (('ano', 'semestre', 'idcurso'),)
 
+    def __str__(self):
+        return self.idcurso
+
 
 class Matricula(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
@@ -176,6 +204,7 @@ class Matricula(models.Model):
         unique_together = (('idaluno', 'idturma'),)
 
 
+
 class Periodo(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
     idgradecurricular = models.ForeignKey(Gradecurricular, models.DO_NOTHING, db_column='IdGradeCurricular')  # Field name made lowercase.
@@ -185,6 +214,9 @@ class Periodo(models.Model):
         managed = False
         db_table = 'Periodo'
         unique_together = (('numero', 'idgradecurricular'),)
+
+    def __str__(self):
+        return self.idgradecurricular
 
 
 class Periododisciplina(models.Model):
@@ -197,32 +229,26 @@ class Periododisciplina(models.Model):
         db_table = 'PeriodoDisciplina'
         unique_together = (('idperiodo', 'iddisciplina'),)
 
-
-class Professor(models.Model):
-    id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
-    ra = models.IntegerField(db_column='RA', unique=True)  # Field name made lowercase.
-    nome = models.CharField(db_column='Nome', max_length=120)  # Field name made lowercase.
-    email = models.CharField(db_column='Email', max_length=80)  # Field name made lowercase.
-    celular = models.CharField(db_column='Celular', max_length=11, blank=True, null=True)  # Field name made lowercase.
-    apelido = models.CharField(db_column='Apelido', unique=True, max_length=30, blank=True, null=True)  # Field name made lowercase.
-
-    class Meta:
-        managed = False
-        db_table = 'Professor'
+    def __str__(self):
+        return self.idperiodo
 
 
 class Questao(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
     idturma = models.ForeignKey('Turma', models.DO_NOTHING, db_column='IdTurma')  # Field name made lowercase.
     numero = models.IntegerField(db_column='Numero', blank=True, null=True)  # Field name made lowercase.
-    data_limite_entrega = models.CharField(max_length=10, blank=True, null=True)
+    data_limite_entrega = models.DateField(max_length=10, blank=True, null=True)
     descricao = models.TextField(db_column='Descricao', blank=True, null=True)  # Field name made lowercase. This field type is a guess.
-    data = models.CharField(db_column='Data', max_length=10)  # Field name made lowercase.
+    data = models.DateField(db_column='Data', max_length=10)  # Field name made lowercase.
+    arquivo = models.FileField(upload_to="arquivo/")
 
     class Meta:
         managed = False
         db_table = 'Questao'
         unique_together = (('numero', 'idturma'),)
+
+    def __str__(self):
+        return self.idturma
 
 
 class Resposta(models.Model):
@@ -240,6 +266,9 @@ class Resposta(models.Model):
         db_table = 'Resposta'
         unique_together = (('idquestao', 'idaluno'),)
 
+    def __str__(self):
+        return self.idquestao
+
 
 class Turma(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
@@ -253,6 +282,8 @@ class Turma(models.Model):
         db_table = 'Turma'
         unique_together = (('identificador', 'id_disciplinaofertada'),)
 
+    def __str__(self):
+        return self.identificador
 
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=80)
@@ -260,6 +291,9 @@ class AuthGroup(models.Model):
     class Meta:
         managed = False
         db_table = 'auth_group'
+
+    def __str__(self):
+        return self.nome
 
 
 class AuthGroupPermissions(models.Model):
@@ -270,6 +304,9 @@ class AuthGroupPermissions(models.Model):
         managed = False
         db_table = 'auth_group_permissions'
         unique_together = (('group', 'permission'),)
+
+    def __str__(self):
+        return self.nome
 
 
 class AuthPermission(models.Model):
@@ -282,6 +319,9 @@ class AuthPermission(models.Model):
         db_table = 'auth_permission'
         unique_together = (('content_type', 'codename'),)
 
+    def __str__(self):
+        return self.nome
+
 
 class CoreAluno(models.Model):
     usuario_ptr = models.ForeignKey('CoreUsuario', models.DO_NOTHING, primary_key=True,unique=True)
@@ -292,6 +332,9 @@ class CoreAluno(models.Model):
         managed = False
         db_table = 'core_aluno'
 
+    def __str__(self):
+        return self.nome
+
 
 class CoreCurso(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -301,6 +344,9 @@ class CoreCurso(models.Model):
     class Meta:
         managed = False
         db_table = 'core_curso'
+
+    def __str__(self):
+        return self.nome
 
 
 class CoreUsuario(models.Model):
@@ -316,6 +362,9 @@ class CoreUsuario(models.Model):
         managed = False
         db_table = 'core_usuario'
 
+    def __str__(self):
+        return self.nome
+
 
 class DjangoAdminLog(models.Model):
     action_time = models.DateTimeField()
@@ -330,6 +379,9 @@ class DjangoAdminLog(models.Model):
         managed = False
         db_table = 'django_admin_log'
 
+    def __str__(self):
+        return self.nome
+
 
 class DjangoContentType(models.Model):
     app_label = models.CharField(max_length=100)
@@ -339,6 +391,9 @@ class DjangoContentType(models.Model):
         managed = False
         db_table = 'django_content_type'
         unique_together = (('app_label', 'model'),)
+
+    def __str__(self):
+        return self.nome
 
 
 class DjangoMigrations(models.Model):
@@ -350,6 +405,9 @@ class DjangoMigrations(models.Model):
         managed = False
         db_table = 'django_migrations'
 
+    def __str__(self):
+        return self.nome
+
 
 class DjangoSession(models.Model):
     session_key = models.CharField(primary_key=True, max_length=40)
@@ -359,6 +417,9 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
+
+    def __str__(self):
+        return self.nome
 
 
 class Sysdiagrams(models.Model):
@@ -372,59 +433,6 @@ class Sysdiagrams(models.Model):
         managed = False
         db_table = 'sysdiagrams'
         unique_together = (('principal_id', 'name'),)
-#----------------------------------------------------------------------------------------
 
-def AplicaTeste(Aluno):
-    
-    if Resposta.objects.filter(raaluno=Aluno.ra):
-        return " ja fez o teste"
-    else:
-        return "renderizar o teste"
-
-    
-def Aluno_Enviaram():
-
-    ListaDosQueFizeram = []
-    listaNome=[]
-    AlunosResponderam = Resposta.objects.all()
-    TodosAlunos = Aluno.objects.all()
-    for aluno in TodosAlunos:
-        for AlunoRespondeu in AlunosResponderam:
-            if aluno.id == AlunoRespondeu.raaluno:
-                ListaDosQueFizeram.append(aluno.nome)
-    return ListaDosQueFizeram
-
-def Alunos_N_Enviaram():
-    ListaDosQueFizeram = []
-    listaNome=[]
-    AlunosResponderam = Resposta.objects.all()
-    TodosAlunos = Aluno.objects.all()
-    for AlunoRespondeu in AlunosResponderam:
-        ListaDosQueFizeram.append(AlunoRespondeu.raaluno)
-    TodosAlunos = Aluno.objects.exclude(id__in=ListaDosQueFizeram)
-    return TodosAlunos
-
-def VerificaPrazo(dataatual,Questao):
-    ValidaQuestao = Questao.objects.all()
-    if ValidaQuestao.data_limite_entrega > dataatual:
-        return print ( "você não pode entregar a questão pois passou da data limite")
-    else:
-        return "Grud resposta"
-
-def ValidaMatricula(Aluno,IdDisciplina):
-    Matriculas = Matricula.objects.all()
-    Disciplinas = Disciplinaofertada.objects.all()
-    turmas = turma.objects.all()
-    for matricula in Matriculas:
-        for turma in turmas:
-            if matricula.idTurma == turma.idTurma:
-                if turma.id_disciplinaofertada == IdDisciplina:
-                    print("Já possui matricula nesse disciplina")
-                    break
-                else:
-                    print ("pode metricular")
-
-def CrudMatricula():
-    u = Aluno(ra = "12312",nome = "dsydg",email = "uhsdah",celular = "12323",idcurso = 1)
-    u.save()
-    return ("funfo")
+    def __str__(self):
+        return self.nome
