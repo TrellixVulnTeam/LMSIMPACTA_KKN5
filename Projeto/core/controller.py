@@ -7,7 +7,7 @@ from core.models import Matricula
 from core.models import Resposta
 from core.models import Turma
 from core.models import Curso
-from datetime import datetime
+from datetime import date
 
 
 # Create your models here.
@@ -25,6 +25,15 @@ class Curso(models.Model):
     def __str__(self):
         return self.nome
 '''
+def calculamedia(aluno):
+    nota=0
+    quant=0
+    entregues=Resposta.objects.filter(idaluno=aluno)
+    for entregue in entregues:
+        nota+= entregue.nota
+        quant+=1
+    return nota/quant   
+
 def AplicaTeste(user):
     
     if Resposta.objects.filter(idaluno=user.ra):
@@ -55,25 +64,43 @@ def Alunos_N_Enviaram():
     return TodosAlunos
 
 def VerificaPrazo(Id):
-    dataatual= datetime.now()
-    ValidaQuestao = Questao.objects.filter(id=2)
-    if ValidaQuestao.data > dataatual:
-        return print ( "você não pode entregar a questão pois passou da data limite")
-    else:
-        return "Grud resposta"
+    dataatual= date.today()
+    ValidaQuestao = Questao.objects.filter(id=Id)
+    for q in ValidaQuestao:
+        if q.data_limite_entrega < dataatual:
+            return "Passou da data de entrega"
+        else:
+            return "Pode fazer"
 
-def ValidaMatricula(Aluno,IdDisciplina):
-    Matriculas = Matricula.objects.all()
-    Disciplinas = Disciplinaofertada.objects.all()
-    turmas = turma.objects.all()
+def ValidaMatricula(IdAluno,iddisc):
+    matriculadoem=[]
+    verify=[]
+    Matriculas = Matricula.objects.filter(idaluno=IdAluno)
     for matricula in Matriculas:
-        for turma in turmas:
-            if matricula.idTurma == turma.idTurma:
-                if turma.id_disciplinaofertada == IdDisciplina:
-                    print("Já possui matricula nesse disciplina")
-                    break
-                else:
-                    print ("pode metricular")
+        matriculadoem.append(matricula.values)
+
+    TurmaMatriculado = Turma.objects.filter(id__in=matriculadoem)
+
+    for turma in TurmaMatriculado:
+        if turma.id_disciplinaofertada == iddisc:
+            mtriculadoem.append(iddisc)
+    if len(matriculadoem)>=1:
+        return "você já não pode se matricular"
+    else:
+        return "pode se matricular"
+
+
+
+
+    if teste.count:
+        return "Já possui matricula nesse disciplina"
+    else:
+        return "pode metricular"
+
+
+
+
+
 
 def CrudMatricula():
     u = Aluno(ra = "12312",nome = "dsydg",email = "uhsdah",celular = "12323",idcurso = 1)

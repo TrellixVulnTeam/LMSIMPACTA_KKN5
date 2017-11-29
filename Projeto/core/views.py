@@ -24,9 +24,11 @@ def banana(requisicao):
     return render(request,"contato.html")
 '''
 def index(request):
-    novo = VerificaPrazo(2)
+
+    novo =  calculamedia(request.user.id)
+    
     contexto = {
-        "cursos": novo,
+        "cursos":novo,
         "faculdade":'novo',
         "pagina":"Homepage",
         "usuario":"Yuri",

@@ -202,7 +202,7 @@ class Matricula(models.Model):
         managed = False
         db_table = 'Matricula'
         unique_together = (('idaluno', 'idturma'),)
-
+  
 
 
 class Periodo(models.Model):
@@ -247,8 +247,6 @@ class Questao(models.Model):
         db_table = 'Questao'
         unique_together = (('numero', 'idturma'),)
 
-    def __str__(self):
-        return self.idturma
 
 
 class Resposta(models.Model):
@@ -333,7 +331,7 @@ class CoreAluno(models.Model):
         db_table = 'core_aluno'
 
     def __str__(self):
-        return self.nome
+        return self.usuario_ptr
 
 
 class CoreCurso(models.Model):
