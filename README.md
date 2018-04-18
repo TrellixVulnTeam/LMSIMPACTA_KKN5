@@ -1,8 +1,8 @@
 # LMSIMPACTA
 Projeto integrado do semestre.
 
-Projeto de criação do site ,se baseando no site da Faculdade Impacta  de Tecnologias.
-Esteja a vontade para utilizar do codigo,mas apenas, deem o devido crédito.
+Projeto de criação do site baseado no site da Faculdade Impacta  de Tecnologias.
+Sinta-se a vontade para utilizar do codigo apenas dêem o devido crédito.
 
   Created by :
    
